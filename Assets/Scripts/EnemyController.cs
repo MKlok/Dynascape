@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour {
 
         colorIni = Color.white;
         colorFin = Color.black;
-        duration = 3f;
+        duration = 1.5f;
         lerpedColor = Color.white;
 
         t = 0;
@@ -40,10 +40,11 @@ public class EnemyController : MonoBehaviour {
             _renderer.material.color = lerpedColor;
 
             t += Time.deltaTime;
-                if (t >= duration)
-                    ColorChanged = true;
-            
-           
+            if (t >= duration)
+            {
+                ColorChanged = true;
+                Destroy(gameObject);
+            }
         }
 	}
 }
