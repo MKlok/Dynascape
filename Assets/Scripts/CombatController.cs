@@ -40,6 +40,7 @@ public class CombatController : MonoBehaviour {
                 {
                     if (ccCooldown.value >= turnCooldown)
                     {
+                        ccCooldown.value = 0;
                         if (hit.transform.tag == "Attack")
                         {
                             if (target != null && target.GetComponent<EnemyController>().HP > 0)
@@ -59,7 +60,10 @@ public class CombatController : MonoBehaviour {
                         {
                             animationUpdate(3);
                         }
-                        ccCooldown.value = 0;
+                        else if (hit.transform.tag == "Player")
+                        {
+                            ccCooldown.value = turnCooldown;
+                        } 
                     }
                 }
             }
