@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioHandler : MonoBehaviour {
-    public AudioClip battleTheme;
+    public AudioClip sceneTheme;
 
     // Use this for initialization
     void Start () {
@@ -17,7 +17,7 @@ public class AudioHandler : MonoBehaviour {
 
     public void StartBattle()
     {
-        GetComponent<AudioSource>().clip = battleTheme;
+        GetComponent<AudioSource>().clip = sceneTheme;
         GetComponent<AudioSource>().Play();
     }
 }
