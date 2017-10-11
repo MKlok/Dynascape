@@ -6,6 +6,7 @@ public class PlayerInput : MonoBehaviour {
     public Sprite[] animationHandler;
 
     private bool startAnimation;
+    private bool startEncounter;
 
     private int currentFrame;
     private int encounterTracker;
@@ -16,9 +17,12 @@ public class PlayerInput : MonoBehaviour {
     private string lastKey;
     private string currKey;
 
+    public AudioClip enterBattle;
+
     // Use this for initialization
     void Start () {
         startAnimation = false;
+        startEncounter = false;
 
         currentFrame = 0;
         encounterTracker = 0;
@@ -28,11 +32,13 @@ public class PlayerInput : MonoBehaviour {
 
         lastKey = null;
         currKey = null;
-	}
+
+        gameObject.AddComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.anyKey)
+        if (Input.anyKey && !startEncounter)
         {
             if (Input.GetKey(KeyCode.W))
             {
@@ -91,6 +97,18 @@ public class PlayerInput : MonoBehaviour {
             if (Random.Range(encounterTracker, 9) <= 4)
             {
                 Debug.Log("Encounter! RN:" + encounterTracker);
+
+                startEncounter = true;
+                GetComponent<AudioSource>().clip = enterBattle;
+                GetComponent<AudioSource>().Play();
+            }
+        }
+        else if (startEncounter)
+        {
+            encounterTimer += Time.deltaTime;
+            if (encounterTimer >= 1f)
+            {
+                Application.LoadLevel("Combatscene");
             }
         }
     }
