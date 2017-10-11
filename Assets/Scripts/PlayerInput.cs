@@ -105,6 +105,9 @@ public class PlayerInput : MonoBehaviour {
         }
         else if (startEncounter)
         {
+            Camera.main.orthographicSize -= Time.deltaTime * 3;
+
+            Debug.Log(Camera.main.gameObject.transform.rotation.z);
             encounterTimer += Time.deltaTime;
             if (encounterTimer >= 1f)
             {
