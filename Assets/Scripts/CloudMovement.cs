@@ -15,7 +15,7 @@ public class CloudMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         gameObject.transform.Translate(Vector3.right * Time.deltaTime / 2);
-        Debug.Log(gameObject.transform.position.x);
+
         if (gameObject.transform.position.x >= 10)
         {
             Destroy(gameObject);
