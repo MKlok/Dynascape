@@ -7,11 +7,17 @@ public class AudioHandler : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        StartBattle();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void StartBattle()
+    {
+        GetComponent<AudioSource>().clip = battleTheme;
+        GetComponent<AudioSource>().Play();
+    }
 }
