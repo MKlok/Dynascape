@@ -7,12 +7,16 @@ public class PlayerInput : MonoBehaviour {
     private bool startAnimation;
     private int currentFrame;
     private float animationTimer;
+    private string lastKey;
+    private string currKey;
 
     // Use this for initialization
     void Start () {
         startAnimation = false;
         currentFrame = 0;
         animationTimer = 0.0f;
+        lastKey = null;
+        currKey = null;
 	}
 	
 	// Update is called once per frame
@@ -23,21 +27,25 @@ public class PlayerInput : MonoBehaviour {
             {
                 gameObject.transform.Translate(Vector3.up * Time.deltaTime);
                 PlayAnimation(3);
+                currKey = "W";
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 gameObject.transform.Translate(Vector3.right * Time.deltaTime);
                 PlayAnimation(2);
+                currKey = "D";
             }
             else if (Input.GetKey(KeyCode.A))
             {
                 gameObject.transform.Translate(Vector3.left * Time.deltaTime);
                 PlayAnimation(1);
+                currKey = "A";
             }
             else if (Input.GetKey(KeyCode.S))
             {
                 gameObject.transform.Translate(Vector3.down * Time.deltaTime);
                 PlayAnimation(0);
+                currKey = "S";
             }            
         }
         else
@@ -69,7 +77,17 @@ public class PlayerInput : MonoBehaviour {
             Debug.Log("Not a direction!");
             return;
         }
+        else
+        {
+            if (currKey != lastKey)
+            {
+                StopAnimation(side);
+                lastKey = currKey;
+            }
+        }
+
         animationTimer += Time.deltaTime;
+
         if (!startAnimation)
         {
             startAnimation = true;
@@ -104,5 +122,6 @@ public class PlayerInput : MonoBehaviour {
         }
         currentFrame = side * 3;
         GetComponent<SpriteRenderer>().sprite = animationHandler[currentFrame];
+        startAnimation = false;
     }
 }
