@@ -20,7 +20,7 @@ public class CloudHandler : MonoBehaviour {
         if (spawnTimer >= spawnTime)
         {
             spawnTimer = 0.0f;
-            spawnTime = Random.Range(0.8f, 1.6f);
+            spawnTime = Random.Range(10f, 18f);
 
             Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(0, Random.Range(0, Screen.height), Camera.main.farClipPlane / 2));
 
