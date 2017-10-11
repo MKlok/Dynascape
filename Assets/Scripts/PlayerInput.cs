@@ -17,41 +17,47 @@ public class PlayerInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey(KeyCode.W))
+        if (Input.anyKey)
         {
-            gameObject.transform.Translate(Vector3.up * Time.deltaTime);
-            PlayAnimation(3);            
+            if (Input.GetKey(KeyCode.W))
+            {
+                gameObject.transform.Translate(Vector3.up * Time.deltaTime);
+                PlayAnimation(3);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                gameObject.transform.Translate(Vector3.right * Time.deltaTime);
+                PlayAnimation(2);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                gameObject.transform.Translate(Vector3.left * Time.deltaTime);
+                PlayAnimation(1);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                gameObject.transform.Translate(Vector3.down * Time.deltaTime);
+                PlayAnimation(0);
+            }            
         }
-        if (Input.GetKeyUp(KeyCode.W))
+        else
         {
-            StopAnimation(3);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            gameObject.transform.Translate(Vector3.left * Time.deltaTime);
-            PlayAnimation(1);
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            StopAnimation(1);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            gameObject.transform.Translate(Vector3.down * Time.deltaTime);
-            PlayAnimation(0);
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            StopAnimation(0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            gameObject.transform.Translate(Vector3.right * Time.deltaTime);
-            PlayAnimation(2);
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            StopAnimation(2);
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                StopAnimation(3);
+            }
+            else if (Input.GetKeyUp(KeyCode.A))
+            {
+                StopAnimation(1);
+            }
+            else if (Input.GetKeyUp(KeyCode.S))
+            {
+                StopAnimation(0);
+            }
+            else if (Input.GetKeyUp(KeyCode.D))
+            {
+                StopAnimation(2);
+            }
         }
     }
 
