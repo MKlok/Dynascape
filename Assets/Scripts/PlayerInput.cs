@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour {
     public Sprite[] animationHandler;
+
     private bool startAnimation;
+
     private int currentFrame;
+    private int encounterTracker;
+
     private float animationTimer;
+    private float encounterTimer;
+
     private string lastKey;
     private string currKey;
 
     // Use this for initialization
     void Start () {
         startAnimation = false;
+
         currentFrame = 0;
+        encounterTracker = 0;
+
         animationTimer = 0.0f;
+        encounterTimer = 0.0f;
+
         lastKey = null;
         currKey = null;
 	}
@@ -46,7 +57,8 @@ public class PlayerInput : MonoBehaviour {
                 gameObject.transform.Translate(Vector3.down * Time.deltaTime);
                 PlayAnimation(0);
                 currKey = "S";
-            }            
+            }
+            encounterTimer += Time.deltaTime;
         }
         else
         {
@@ -67,6 +79,20 @@ public class PlayerInput : MonoBehaviour {
                 StopAnimation(2);
             }
         }
+        if (encounterTimer >= 1.0f)
+        {
+            if (encounterTracker <= 4)
+            {
+                encounterTracker += 1;
+            }
+
+            encounterTimer--;
+
+            if (Random.Range(encounterTracker, 9) <= 4)
+            {
+                Debug.Log("Encounter! RN:" + encounterTracker);
+            }
+        }
     }
 
     private void PlayAnimation(int side)
@@ -85,6 +111,8 @@ public class PlayerInput : MonoBehaviour {
                 lastKey = currKey;
                 startAnimation = true;
                 animationTimer = 1f;
+                encounterTimer = 0.0f;
+                encounterTracker = 0;
             }
         }
 
