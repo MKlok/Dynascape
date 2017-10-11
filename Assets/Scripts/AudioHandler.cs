@@ -20,4 +20,9 @@ public class AudioHandler : MonoBehaviour {
         GetComponent<AudioSource>().clip = sceneTheme;
         GetComponent<AudioSource>().Play();
     }
+
+    public void FadeMusic(int change) {
+        GetComponent<AudioSource>().volume += change * Time.deltaTime;
+
+    }
 }
