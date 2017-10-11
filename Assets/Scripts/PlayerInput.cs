@@ -6,11 +6,13 @@ public class PlayerInput : MonoBehaviour {
     public Sprite[] animationHandler;
     private bool startAnimation;
     private int currentFrame;
+    private float animationTimer;
 
     // Use this for initialization
     void Start () {
         startAnimation = false;
-        currentFrame = 6;
+        currentFrame = 0;
+        animationTimer = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -18,22 +20,61 @@ public class PlayerInput : MonoBehaviour {
 		if (Input.GetKey(KeyCode.W))
         {
             gameObject.transform.Translate(Vector3.up * Time.deltaTime);
-            PlayAnimation();            
+            PlayAnimation(3);            
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
-            StopAnimation();
+            StopAnimation(3);
         }
-	}
+        if (Input.GetKey(KeyCode.A))
+        {
+            gameObject.transform.Translate(Vector3.left * Time.deltaTime);
+            PlayAnimation(1);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            StopAnimation(1);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            gameObject.transform.Translate(Vector3.down * Time.deltaTime);
+            PlayAnimation(0);
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            StopAnimation(0);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            gameObject.transform.Translate(Vector3.right * Time.deltaTime);
+            PlayAnimation(2);
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            StopAnimation(2);
+        }
+    }
 
-    private void PlayAnimation()
+    private void PlayAnimation(int side)
     {
-        startAnimation = true;
-        if (currentFrame == 6 || currentFrame == 0 || currentFrame == 3)
+        //3 = up, 2 = left, 1 = right, 0 = down
+        if (side > 3)
+        {
+            Debug.Log("Not a direction!");
+            return;
+        }
+        animationTimer += Time.deltaTime;
+        if (!startAnimation)
+        {
+            startAnimation = true;
+            animationTimer = 1f;
+            currentFrame = side * 3;
+        }
+        if (currentFrame == 0 || currentFrame == 3 || currentFrame == 6 || currentFrame == 9)
         {
             currentFrame++;
         }
-        else if (currentFrame == 8 || currentFrame == 2 || currentFrame == 5)
+        else if (currentFrame == 2 || currentFrame == 5 || currentFrame == 8 || currentFrame == 11)
         {
             currentFrame--;
         }
@@ -41,10 +82,21 @@ public class PlayerInput : MonoBehaviour {
         {
             currentFrame++;
         }
-        GetComponent<SpriteRenderer>().sprite = animationHandler[currentFrame];
+        if (animationTimer >= 0.1f)
+        {
+            GetComponent<SpriteRenderer>().sprite = animationHandler[currentFrame];
+            animationTimer = 0.0f;
+        }
     }
-    private void StopAnimation()
+    private void StopAnimation(int side)
     {
-        GetComponent<SpriteRenderer>().sprite = animationHandler[6];
+        //3 = up, 2 = left, 1 = right, 0 = down
+        if (side > 3)
+        {
+            Debug.Log("Not a direction!");
+            return;
+        }
+        currentFrame = side * 3;
+        GetComponent<SpriteRenderer>().sprite = animationHandler[currentFrame];
     }
 }
