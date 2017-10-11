@@ -83,17 +83,13 @@ public class PlayerInput : MonoBehaviour {
             {
                 StopAnimation(side);
                 lastKey = currKey;
+                startAnimation = true;
+                animationTimer = 1f;
             }
         }
 
         animationTimer += Time.deltaTime;
 
-        if (!startAnimation)
-        {
-            startAnimation = true;
-            animationTimer = 1f;
-            currentFrame = side * 3;
-        }
         if (currentFrame == 0 || currentFrame == 3 || currentFrame == 6 || currentFrame == 9)
         {
             currentFrame++;
