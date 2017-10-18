@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
+    public CombatHandler ch;
+
     public int HP;
 
     private Color colorIni;
@@ -42,7 +44,8 @@ public class EnemyController : MonoBehaviour {
             t += Time.deltaTime;
             if (t >= duration)
             {
-
+                gameObject.tag = "Untagged";
+                ch.UpdateList();
                 Destroy(gameObject);
             }
         }
