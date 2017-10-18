@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
     public int HP;
+
     private Color colorIni;
     private Color colorFin;
+    private Color lerpedColor;
+
     private float duration;
-    Color lerpedColor;
 
     private float t;
 
