@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour {
     public Sprite[] animationHandler;
 
     private bool startEncounter;
+    private bool disableControls;
 
     private int currentFrame;
     private int encounterTracker;
@@ -21,7 +22,10 @@ public class PlayerInput : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        DontDestroyOnLoad(gameObject);
+
         startEncounter = false;
+        disableControls = false;
 
         currentFrame = 0;
         encounterTracker = 0;
@@ -37,7 +41,7 @@ public class PlayerInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.anyKey && !startEncounter)
+        if (Input.anyKey && !startEncounter && !disableControls)
         {
             if (Input.GetKey(KeyCode.W))
             {
@@ -99,6 +103,9 @@ public class PlayerInput : MonoBehaviour {
             if (encounterTimer >= 1f)
             {
                 SceneManager.LoadScene("Combatscene");
+                encounterTimer = 0.0f;
+                startEncounter = false;
+                disableControls = true;
             }
         }
     }
@@ -174,5 +181,10 @@ public class PlayerInput : MonoBehaviour {
             GetComponent<AudioSource>().clip = enterBattle;
             GetComponent<AudioSource>().Play();
         }
+    }
+
+    public void SetControls ()
+    {
+        disableControls = false;
     }
 }
