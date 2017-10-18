@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CombatController : MonoBehaviour {
+    public UIHandler uh;
+
     private GameObject target;
 
     public Sprite[] animationHandler;
@@ -55,15 +57,18 @@ public class CombatController : MonoBehaviour {
                                 target.GetComponent<EnemyController>().HP -= 20;
 
                                 animationUpdate(1);
+                                uh.MenuPress(1);
                             }
                         }
                         else if (hit.transform.tag == "Defend")
                         {
                             animationUpdate(2);
+                            uh.MenuPress(2);
                         }
                         else if (hit.transform.tag == "Heal")
                         {
                             animationUpdate(3);
+                            uh.MenuPress(3);
                         }
                         else if (hit.transform.tag == "Player")
                         {
