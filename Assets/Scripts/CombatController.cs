@@ -5,9 +5,15 @@ using UnityEngine.UI;
 
 public class CombatController : MonoBehaviour {
     private GameObject target;
+
     public Sprite[] animationHandler;
+
     public Slider ccCooldown;
+
     public Image sliderFill;
+
+    public Transform crosshair;
+    private Transform[] crosshairs;
 
     private float resetTimer;
     private float turnCooldown;
@@ -35,6 +41,7 @@ public class CombatController : MonoBehaviour {
                 if (ec)
                 {
                     target = hit.transform.gameObject;
+                    Instantiate(crosshair, target.transform.position, Quaternion.identity);
                 }
                 if (!ec)
                 {
