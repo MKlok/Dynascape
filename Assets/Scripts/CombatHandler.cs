@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class CombatHandler : MonoBehaviour
 {
     private GameObject[] enemyList;
-    private GameObject[] overWorldController;
+    private GameObject overWorldController;
 
     // Use this for initialization
     void Start()
     {
         UpdateList();
 
-        overWorldController = GameObject.FindGameObjectsWithTag("OverworldController");
+        overWorldController = GameObject.FindWithTag("OverworldController");
     }
 
     // Update is called once per frame
@@ -25,13 +25,6 @@ public class CombatHandler : MonoBehaviour
     private void LoadOverworld()
     {
         SceneManager.LoadScene("OverworldScene");
-
-        if (overWorldController.Length != 0)
-        {
-            PlayerInput pi = overWorldController[0].gameObject.GetComponent<PlayerInput>();
-
-            pi.SetControls();
-        }
     }
 
     public void UpdateList()
@@ -40,6 +33,7 @@ public class CombatHandler : MonoBehaviour
 
         if (enemyList.Length == 0)
         {
+            overWorldController.GetComponent<PlayerInput>().SetControls();
             LoadOverworld();
         }
     }

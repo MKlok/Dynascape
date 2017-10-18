@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerInput : MonoBehaviour {
     public Sprite[] animationHandler;
 
+    private static GameObject player;
+
     private bool startEncounter;
     private bool disableControls;
 
@@ -21,7 +23,16 @@ public class PlayerInput : MonoBehaviour {
     public AudioClip enterBattle;
 
     // Use this for initialization
-    void Start () {
+    void Awake() {
+        if (!player)
+        {
+            player = gameObject;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         DontDestroyOnLoad(gameObject);
 
         startEncounter = false;
@@ -69,7 +80,7 @@ public class PlayerInput : MonoBehaviour {
             }
             encounterTimer += Time.deltaTime;
         }
-        else
+        else if (!disableControls)
         {
             if (Input.GetKeyUp(KeyCode.W))
             {
@@ -183,8 +194,18 @@ public class PlayerInput : MonoBehaviour {
         }
     }
 
-    public void SetControls ()
+    public bool GetControls()
+    {
+        return disableControls;
+    }
+
+    public void SetControls()
     {
         disableControls = false;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 }
