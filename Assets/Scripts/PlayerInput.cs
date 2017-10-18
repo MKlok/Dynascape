@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInput : MonoBehaviour {
     public Sprite[] animationHandler;
@@ -99,7 +100,7 @@ public class PlayerInput : MonoBehaviour {
             encounterTimer += Time.deltaTime;
             if (encounterTimer >= 1f)
             {
-                Application.LoadLevel("Combatscene");
+                SceneManager.LoadScene("Combatscene");
             }
         }
     }
