@@ -60,19 +60,19 @@ public class UIHandler : MonoBehaviour {
     {
         //1 = Attack | 2 = Defend | 3 = Heal | 4 = Unique
 
-        if (frame == 0)
+        if (frame == 1)
         {
             attack.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
         }
-        if (frame == 1)
+        if (frame == 2)
         {
             defend.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
         }
-        if (frame == 2)
+        if (frame == 3)
         {
             heal.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
         }
-        if (frame == 3)
+        if (frame == 4)
         {
             //heal.GetComponent<SpriteRenderer>().sprite = menuSheet[button];
         }

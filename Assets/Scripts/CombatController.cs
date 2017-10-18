@@ -20,6 +20,8 @@ public class CombatController : MonoBehaviour {
     private float resetTimer;
     private float turnCooldown;
 
+    private int topbarRefresh;
+
 	// Use this for initialization
 	void Start () {
         target = null;
@@ -58,17 +60,23 @@ public class CombatController : MonoBehaviour {
 
                                 animationUpdate(1);
                                 uh.MenuPress(1);
+
+                                topbarRefresh = 1;
                             }
                         }
                         else if (hit.transform.tag == "Defend")
                         {
                             animationUpdate(2);
                             uh.MenuPress(2);
+
+                            topbarRefresh = 2;
                         }
                         else if (hit.transform.tag == "Heal")
                         {
                             animationUpdate(3);
                             uh.MenuPress(3);
+
+                            topbarRefresh = 3;
                         }
                         else if (hit.transform.tag == "Player")
                         {
@@ -84,6 +92,7 @@ public class CombatController : MonoBehaviour {
             if (resetTimer >= 2f)
             {
                 animationUpdate(0);
+                uh.MenuReset(topbarRefresh);
             }
         }
         if (ccCooldown.value < turnCooldown)
