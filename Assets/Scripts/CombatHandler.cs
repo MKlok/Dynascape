@@ -8,9 +8,9 @@ public class CombatHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        enemyList = GameObject.FindGameObjectsWithTag("enemy");
+        enemyList = GameObject.FindGameObjectsWithTag("Enemy");
 
-        Debug.Log(enemyList);
+        Debug.Log(enemyList.Length);
 	}
 	
 	// Update is called once per frame
