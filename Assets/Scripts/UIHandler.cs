@@ -62,15 +62,15 @@ public class UIHandler : MonoBehaviour {
 
         if (frame == 1)
         {
-            attack.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
+            attack.GetComponent<SpriteRenderer>().sprite = menuSheet[frame - 1];
         }
         if (frame == 2)
         {
-            defend.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
+            defend.GetComponent<SpriteRenderer>().sprite = menuSheet[frame - 1];
         }
         if (frame == 3)
         {
-            heal.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
+            heal.GetComponent<SpriteRenderer>().sprite = menuSheet[frame - 1];
         }
         if (frame == 4)
         {
