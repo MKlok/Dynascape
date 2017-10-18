@@ -89,10 +89,15 @@ public class CombatController : MonoBehaviour {
         if (resetTimer < 2f)
         {
             resetTimer += Time.deltaTime;
+            if (resetTimer >= 0.3f)
+            {
+                uh.MenuReset(topbarRefresh);
+            }
+
             if (resetTimer >= 2f)
             {
                 animationUpdate(0);
-                uh.MenuReset(topbarRefresh);
+               
             }
         }
         if (ccCooldown.value < turnCooldown)
