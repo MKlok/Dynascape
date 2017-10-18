@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerInput : MonoBehaviour {
     public Sprite[] animationHandler;
 
-    private bool startAnimation;
     private bool startEncounter;
 
     private int currentFrame;
@@ -22,7 +21,6 @@ public class PlayerInput : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        startAnimation = false;
         startEncounter = false;
 
         currentFrame = 0;
@@ -119,7 +117,6 @@ public class PlayerInput : MonoBehaviour {
             {
                 StopAnimation(side);
                 lastKey = currKey;
-                startAnimation = true;
                 animationTimer = 1f;
                 encounterTimer = 0.0f;
                 encounterTracker = 0;
@@ -158,7 +155,6 @@ public class PlayerInput : MonoBehaviour {
         }
         currentFrame = side * 3;
         GetComponent<SpriteRenderer>().sprite = animationHandler[currentFrame];
-        startAnimation = false;
     }
 
     private void RandomEncounter ()
