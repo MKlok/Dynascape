@@ -87,27 +87,15 @@ public class PlayerInput : MonoBehaviour {
         }
         if (encounterTimer >= 1.0f)
         {
-            if (encounterTracker <= 4)
-            {
-                encounterTracker += 1;
-            }
-
-            encounterTimer--;
-
-            if (Random.Range(encounterTracker, 9) <= 4)
-            {
-                Debug.Log("Encounter! RN:" + encounterTracker);
-
-                startEncounter = true;
-                GetComponent<AudioSource>().clip = enterBattle;
-                GetComponent<AudioSource>().Play();
-            }
+            RandomEncounter();
         }
         else if (startEncounter)
         {
-            Camera.main.orthographicSize -= Time.deltaTime * 3;
+            if (Camera.main.orthographicSize >= 0.5f)
+            {
+                Camera.main.orthographicSize -= Time.deltaTime * 2.8f;
+            }
 
-            Debug.Log(Camera.main.gameObject.transform.rotation.z);
             encounterTimer += Time.deltaTime;
             if (encounterTimer >= 1f)
             {
@@ -134,6 +122,8 @@ public class PlayerInput : MonoBehaviour {
                 animationTimer = 1f;
                 encounterTimer = 0.0f;
                 encounterTracker = 0;
+
+                RandomEncounter();
             }
         }
 
@@ -168,5 +158,24 @@ public class PlayerInput : MonoBehaviour {
         currentFrame = side * 3;
         GetComponent<SpriteRenderer>().sprite = animationHandler[currentFrame];
         startAnimation = false;
+    }
+
+    private void RandomEncounter ()
+    {
+        if (encounterTracker <= 4)
+        {
+            encounterTracker += 1;
+        }
+
+        encounterTimer--;
+
+        if (Random.Range(encounterTracker, 9) <= 4)
+        {
+            Debug.Log("Encounter! RN:" + encounterTracker);
+
+            startEncounter = true;
+            GetComponent<AudioSource>().clip = enterBattle;
+            GetComponent<AudioSource>().Play();
+        }
     }
 }
