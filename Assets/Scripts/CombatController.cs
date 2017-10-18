@@ -43,7 +43,7 @@ public class CombatController : MonoBehaviour {
                     target = hit.transform.gameObject;
                     Instantiate(crosshair, target.transform.position, Quaternion.identity);
                 }
-                if (!ec)
+                if (!ec && target != null)
                 {
                     if (ccCooldown.value >= turnCooldown)
                     {
@@ -53,8 +53,6 @@ public class CombatController : MonoBehaviour {
                             if (target != null && target.GetComponent<EnemyController>().HP > 0)
                             {
                                 target.GetComponent<EnemyController>().HP -= 20;
-
-                                Debug.Log(target.GetComponent<EnemyController>().HP);
 
                                 animationUpdate(1);
                             }
