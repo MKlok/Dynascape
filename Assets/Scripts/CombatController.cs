@@ -94,6 +94,7 @@ public class CombatController : MonoBehaviour {
             if (resetTimer >= 2f && pc != null)
             {
                 pc.animationUpdate(0);
+                resetTimer = 0;
             }
         }
     }
