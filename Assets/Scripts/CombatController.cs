@@ -7,30 +7,26 @@ public class CombatController : MonoBehaviour {
     public UIHandler uh;
 
     private GameObject target;
+    private PlayerCharacter pc;
 
-    public Sprite[] animationHandler;
-
-    public Slider ccCooldown;
-
-    public Image sliderFill;
+    public Sprite[] animationHandler; //Remove
 
     public Transform crosshair;
     private Transform[] crosshairs;
 
     private float resetTimer;
-    private float turnCooldown;
+    private float turnCooldown; //Remove
 
     private int topbarRefresh;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         target = null;
+
+        pc = null;
 
         resetTimer = 0.0f;
         turnCooldown = 2.5f;
-
-        ccCooldown.maxValue = turnCooldown;
-        sliderFill.color = Color.green;
 	}
 	
 	// Update is called once per frame
@@ -47,18 +43,18 @@ public class CombatController : MonoBehaviour {
                     target = hit.transform.gameObject;
                     Instantiate(crosshair, target.transform.position, Quaternion.identity);
                 }
-                if (!ec && target != null)
+                if (!ec && pc != null)
                 {
-                    if (ccCooldown.value >= turnCooldown)
+                    if (pc.ccCooldown.value >= turnCooldown)
                     {
-                        ccCooldown.value = 0;
+                        pc.ccCooldown.value = 0;
                         if (hit.transform.tag == "Attack")
                         {
                             if (target != null && target.GetComponent<EnemyController>().HP > 0)
                             {
                                 target.GetComponent<EnemyController>().HP -= 20;
 
-                                animationUpdate(1);
+                                pc.animationUpdate(1);
                                 uh.MenuPress(1);
 
                                 topbarRefresh = 1;
@@ -66,23 +62,24 @@ public class CombatController : MonoBehaviour {
                         }
                         else if (hit.transform.tag == "Defend")
                         {
-                            animationUpdate(2);
+                            pc.animationUpdate(2);
                             uh.MenuPress(2);
 
                             topbarRefresh = 2;
                         }
                         else if (hit.transform.tag == "Heal")
                         {
-                            animationUpdate(3);
+                            pc.animationUpdate(3);
                             uh.MenuPress(3);
 
                             topbarRefresh = 3;
                         }
-                        else if (hit.transform.tag == "Player")
-                        {
-                            ccCooldown.value = turnCooldown;
-                        } 
                     }
+                }
+                else if (hit.transform.tag == "Player")
+                {
+                    pc = hit.transform.gameObject.GetComponent<PlayerCharacter>();
+
                 }
             }
         }
@@ -94,37 +91,10 @@ public class CombatController : MonoBehaviour {
                 uh.MenuReset(topbarRefresh);
             }
 
-            if (resetTimer >= 2f)
+            if (resetTimer >= 2f && pc != null)
             {
-                animationUpdate(0);
-               
+                pc.animationUpdate(0);
             }
         }
-        if (ccCooldown.value < turnCooldown)
-        {
-            ccCooldown.value += Time.deltaTime;
-            if (sliderFill.color == Color.yellow)
-            {
-                sliderFill.color = Color.green;
-            }
-        }
-        else
-        {
-            sliderFill.color = Color.yellow;
-        }
-
-    }
-
-    void animationUpdate(int frame)
-    {
-        if (frame >= animationHandler.Length)
-        {
-            frame = 0;
-        }
-        if (frame != 0)
-        {
-            resetTimer = 0.0f;
-        }
-        GetComponent<SpriteRenderer>().sprite = animationHandler[frame];
     }
 }
