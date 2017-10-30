@@ -97,11 +97,7 @@ public class CombatController : MonoBehaviour {
         if (pc == null)
         {
             pc = pcQueue[0];
-
-            Debug.Log(pc.gameObject.name);
         }
-
-        Debug.Log(pcQueue.Count);
     }
 
     private void RemoveTopFromQueue()
