@@ -18,6 +18,14 @@ public class PlayerCharacter : MonoBehaviour {
     private bool resetAnimation;
     private bool addedtoList;
 
+    private int hp;
+    private int attack;
+    private int magic;
+    private int defense;
+    private int resistance;
+
+    private float speed;
+
     // Use this for initialization
     void Start () {
         turnCooldown = 2.5f;
@@ -27,6 +35,14 @@ public class PlayerCharacter : MonoBehaviour {
 
         resetAnimation = false;
         addedtoList = false;
+
+        hp = 120;
+        attack = 20;
+        magic = 20;
+        defense = 10;
+        resistance = 10;
+
+        speed = 2.5f;
     }
 	
 	// Update is called once per frame
