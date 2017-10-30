@@ -52,7 +52,7 @@ public class CombatController : MonoBehaviour {
                         {
                             if (target != null && target.GetComponent<EnemyController>().HP > 0)
                             {
-                                target.GetComponent<EnemyController>().HP -= 20;
+                                target.GetComponent<EnemyController>().TakeDamage(20);
 
                                 topbarRefresh = 1;
 
