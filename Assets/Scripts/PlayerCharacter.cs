@@ -62,6 +62,7 @@ public class PlayerCharacter : MonoBehaviour {
         if (frame == 0)
         {
             resetAnimation = false;
+            resetTimer = 0.0f;
         }
         GetComponent<SpriteRenderer>().sprite = animationHandler[frame];
     }
