@@ -10,12 +10,10 @@ public class PlayerCharacter : MonoBehaviour {
 
     public Image sliderFill;
 
-    private float resetTimer;
     public float turnCooldown;
 
     // Use this for initialization
     void Start () {
-        resetTimer = 0.0f;
         turnCooldown = 2.5f;
 
         ccCooldown.maxValue = turnCooldown;
@@ -45,10 +43,6 @@ public class PlayerCharacter : MonoBehaviour {
         if (frame >= animationHandler.Length)
         {
             frame = 0;
-        }
-        if (frame != 0)
-        {
-            resetTimer = 0.0f;
         }
         GetComponent<SpriteRenderer>().sprite = animationHandler[frame];
     }
