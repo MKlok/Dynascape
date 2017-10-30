@@ -27,8 +27,6 @@ public class UIHandler : MonoBehaviour {
 
         frame = button*2 - 1;
 
-        Debug.Log(frame);
-
         if (button == 1)
         {
             attack.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
