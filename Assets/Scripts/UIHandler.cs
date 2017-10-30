@@ -64,11 +64,11 @@ public class UIHandler : MonoBehaviour {
         }
         if (frame == 2)
         {
-            defend.GetComponent<SpriteRenderer>().sprite = menuSheet[frame - 1];
+            defend.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
         }
         if (frame == 3)
         {
-            heal.GetComponent<SpriteRenderer>().sprite = menuSheet[frame - 1];
+            heal.GetComponent<SpriteRenderer>().sprite = menuSheet[frame + 1];
         }
         if (frame == 4)
         {
