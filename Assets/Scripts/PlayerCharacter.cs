@@ -64,7 +64,5 @@ public class PlayerCharacter : MonoBehaviour {
             resetAnimation = false;
         }
         GetComponent<SpriteRenderer>().sprite = animationHandler[frame];
-
-        Debug.Log(resetAnimation);
     }
 }
