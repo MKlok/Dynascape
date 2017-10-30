@@ -78,10 +78,6 @@ public class CombatController : MonoBehaviour {
                         RemoveTopFromQueue();
                     }
                 }
-                else if (hit.transform.tag == "Player")
-                {
-                    //pc = hit.transform.gameObject.GetComponent<PlayerCharacter>();
-                }
             }
         }
         if (resetTimer < 2f)
