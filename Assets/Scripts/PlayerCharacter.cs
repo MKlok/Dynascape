@@ -11,7 +11,7 @@ public class PlayerCharacter : MonoBehaviour {
     public Image sliderFill;
 
     private float resetTimer;
-    private float turnCooldown;
+    public float turnCooldown;
 
     // Use this for initialization
     void Start () {

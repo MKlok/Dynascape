@@ -9,13 +9,10 @@ public class CombatController : MonoBehaviour {
     private GameObject target;
     private PlayerCharacter pc;
 
-    public Sprite[] animationHandler; //Remove
-
     public Transform crosshair;
     private Transform[] crosshairs;
 
     private float resetTimer;
-    private float turnCooldown; //Remove
 
     private int topbarRefresh;
 
@@ -26,7 +23,6 @@ public class CombatController : MonoBehaviour {
         pc = null;
 
         resetTimer = 0.0f;
-        turnCooldown = 2.5f;
 	}
 	
 	// Update is called once per frame
@@ -45,7 +41,7 @@ public class CombatController : MonoBehaviour {
                 }
                 if (!ec && pc != null)
                 {
-                    if (pc.ccCooldown.value >= turnCooldown)
+                    if (pc.ccCooldown.value >= pc.turnCooldown)
                     {
                         pc.ccCooldown.value = 0;
                         if (hit.transform.tag == "Attack")
