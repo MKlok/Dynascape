@@ -11,6 +11,9 @@ public class PlayerCharacter : MonoBehaviour {
     public Image sliderFill;
 
     public float turnCooldown;
+    private float resetTimer;
+
+    private bool resetAnimation;
 
     // Use this for initialization
     void Start () {
@@ -18,6 +21,8 @@ public class PlayerCharacter : MonoBehaviour {
 
         ccCooldown.maxValue = turnCooldown;
         sliderFill.color = Color.green;
+
+        resetAnimation = false;
     }
 	
 	// Update is called once per frame
@@ -36,14 +41,30 @@ public class PlayerCharacter : MonoBehaviour {
         {
             sliderFill.color = Color.yellow;
         }
+
+        if (resetAnimation)
+        {
+            resetTimer += Time.deltaTime;
+            if (resetTimer >= 1f)
+            {
+                animationUpdate(0);
+            }
+        }
     }
 
     public void animationUpdate(int frame)
     {
+        resetAnimation = true;
         if (frame >= animationHandler.Length)
         {
             frame = 0;
         }
+        if (frame == 0)
+        {
+            resetAnimation = false;
+        }
         GetComponent<SpriteRenderer>().sprite = animationHandler[frame];
+
+        Debug.Log(resetAnimation);
     }
 }

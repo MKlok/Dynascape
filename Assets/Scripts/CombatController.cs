@@ -86,12 +86,6 @@ public class CombatController : MonoBehaviour {
             if (resetTimer >= 0.3f)
             {
                 uh.MenuReset(topbarRefresh);
-                
-            }
-
-            if (resetTimer >= 1f && pc != null)
-            {
-                pc.animationUpdate(0);
             }
         }
     }
