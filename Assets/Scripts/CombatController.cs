@@ -9,6 +9,8 @@ public class CombatController : MonoBehaviour {
     private GameObject target;
     private PlayerCharacter pc;
 
+    private List<PlayerCharacter> pcQueue;
+
     public Transform crosshair;
     private Transform[] crosshairs;
 
@@ -18,6 +20,8 @@ public class CombatController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        pcQueue = new List<PlayerCharacter>();
+
         target = null;
 
         pc = null;
@@ -52,7 +56,7 @@ public class CombatController : MonoBehaviour {
 
                                 topbarRefresh = 1;
 
-                                pc.animationUpdate(1);
+                                pc.AnimationUpdate(1);
                                 uh.MenuPress(topbarRefresh);
                             }
                         }
@@ -60,22 +64,23 @@ public class CombatController : MonoBehaviour {
                         {
                             topbarRefresh = 2;
 
-                            pc.animationUpdate(2);                          
+                            pc.AnimationUpdate(2);                          
                             uh.MenuPress(topbarRefresh);
                         }
                         else if (hit.transform.tag == "Heal")
                         {
                             topbarRefresh = 3;
 
-                            uh.MenuPress(3);
+                            pc.AnimationUpdate(3);
                             uh.MenuPress(topbarRefresh);
                         }
                         resetTimer = 0;
+                        RemoveTopFromQueue();
                     }
                 }
                 else if (hit.transform.tag == "Player")
                 {
-                    pc = hit.transform.gameObject.GetComponent<PlayerCharacter>();
+                    //pc = hit.transform.gameObject.GetComponent<PlayerCharacter>();
                 }
             }
         }
@@ -87,5 +92,32 @@ public class CombatController : MonoBehaviour {
                 uh.MenuReset(topbarRefresh);
             }
         }
+    }
+
+    public void AddToQueue(PlayerCharacter addition)
+    {
+        pcQueue.Add(addition);
+
+        if (pc == null)
+        {
+            pc = pcQueue[0];
+
+            Debug.Log(pc.gameObject.name);
+        }
+
+        Debug.Log(pcQueue.Count);
+    }
+
+    private void RemoveTopFromQueue()
+    {
+        if (pcQueue.Count > 0) {
+            pcQueue[0].ClearedFromQueue();
+           pcQueue.RemoveAt(0);
+        }
+
+        if (pcQueue.Count > 0)
+        {
+            pc = pcQueue[0];
+        } 
     }
 }

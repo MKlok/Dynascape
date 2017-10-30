@@ -10,10 +10,13 @@ public class PlayerCharacter : MonoBehaviour {
 
     public Image sliderFill;
 
+    public CombatController cc;
+
     public float turnCooldown;
     private float resetTimer;
 
     private bool resetAnimation;
+    private bool addedtoList;
 
     // Use this for initialization
     void Start () {
@@ -23,6 +26,7 @@ public class PlayerCharacter : MonoBehaviour {
         sliderFill.color = Color.green;
 
         resetAnimation = false;
+        addedtoList = false;
     }
 	
 	// Update is called once per frame
@@ -40,6 +44,11 @@ public class PlayerCharacter : MonoBehaviour {
         else
         {
             sliderFill.color = Color.yellow;
+            if (!addedtoList)
+            {
+                addedtoList = true;
+                cc.AddToQueue(this);
+            }
         }
 
         if (resetAnimation)
@@ -47,12 +56,12 @@ public class PlayerCharacter : MonoBehaviour {
             resetTimer += Time.deltaTime;
             if (resetTimer >= 1f)
             {
-                animationUpdate(0);
+                AnimationUpdate(0);
             }
         }
     }
 
-    public void animationUpdate(int frame)
+    public void AnimationUpdate(int frame)
     {
         resetAnimation = true;
         if (frame >= animationHandler.Length)
@@ -65,5 +74,10 @@ public class PlayerCharacter : MonoBehaviour {
             resetTimer = 0.0f;
         }
         GetComponent<SpriteRenderer>().sprite = animationHandler[frame];
+    }
+
+    public void ClearedFromQueue()
+    {
+        addedtoList = false;
     }
 }
