@@ -39,7 +39,7 @@ public class CombatController : MonoBehaviour {
                     target = hit.transform.gameObject;
                     Instantiate(crosshair, target.transform.position, Quaternion.identity);
                 }
-                if (!ec && pc != null)
+                if (!ec && pc != null && hit.transform.tag != "Player")
                 {
                     if (pc.ccCooldown.value >= pc.turnCooldown)
                     {
@@ -76,7 +76,6 @@ public class CombatController : MonoBehaviour {
                 else if (hit.transform.tag == "Player")
                 {
                     pc = hit.transform.gameObject.GetComponent<PlayerCharacter>();
-
                 }
             }
         }
