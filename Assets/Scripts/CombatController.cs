@@ -80,13 +80,13 @@ public class CombatController : MonoBehaviour {
                 }
             }
         }
-        if (resetTimer < 2f)
+        if (resetTimer < 0.3f)
         {
             resetTimer += Time.deltaTime;
-            if (resetTimer >= 0.3f)
-            {
-                uh.MenuReset(topbarRefresh);
-            }
+        }
+        else
+        {
+            uh.MenuReset(topbarRefresh);
         }
     }
 
