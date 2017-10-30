@@ -54,26 +54,27 @@ public class CombatController : MonoBehaviour {
                             {
                                 target.GetComponent<EnemyController>().HP -= 20;
 
-                                pc.animationUpdate(1);
-                                uh.MenuPress(1);
-
                                 topbarRefresh = 1;
+
+                                pc.animationUpdate(1);
+                                uh.MenuPress(topbarRefresh);
                             }
                         }
                         else if (hit.transform.tag == "Defend")
                         {
-                            pc.animationUpdate(2);
-                            uh.MenuPress(2);
-
                             topbarRefresh = 2;
+
+                            pc.animationUpdate(2);                          
+                            uh.MenuPress(topbarRefresh);
                         }
                         else if (hit.transform.tag == "Heal")
                         {
-                            pc.animationUpdate(3);
-                            uh.MenuPress(3);
-
                             topbarRefresh = 3;
+
+                            uh.MenuPress(3);
+                            uh.MenuPress(topbarRefresh);
                         }
+                        resetTimer = 0;
                     }
                 }
                 else if (hit.transform.tag == "Player")
@@ -89,12 +90,12 @@ public class CombatController : MonoBehaviour {
             if (resetTimer >= 0.3f)
             {
                 uh.MenuReset(topbarRefresh);
+                
             }
 
-            if (resetTimer >= 2f && pc != null)
+            if (resetTimer >= 1f && pc != null)
             {
                 pc.animationUpdate(0);
-                resetTimer = 0;
             }
         }
     }
