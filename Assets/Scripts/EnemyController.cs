@@ -35,9 +35,6 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
 		if (hp <= 0)
         {
-            //GetComponent<SpriteRenderer>().color = Color.black;
-            //Debug.Log("White");
-
             lerpedColor = Color.Lerp(colorIni, colorFin, t);
             _renderer.material.color = lerpedColor;
 
