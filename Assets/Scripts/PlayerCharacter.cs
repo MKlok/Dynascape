@@ -138,9 +138,13 @@ public class PlayerCharacter : MonoBehaviour {
 
     public int GetStat (int stat)
     {
-        //1 = HP | 2 = Atk | 3 = Mag | 4 = Def | 5 = Res 
+        //0 = Max HP | 1 = HP | 2 = Atk | 3 = Mag | 4 = Def | 5 = Res 
 
-        if (stat == 1)
+        if (stat == 0)
+        {
+            return maxHP;
+        }
+        else if (stat == 1)
         {
             return hp;
         }
