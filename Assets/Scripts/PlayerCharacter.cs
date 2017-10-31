@@ -20,6 +20,7 @@ public class PlayerCharacter : MonoBehaviour {
     private int magic;
     private int defense;
     private int resistance;
+    private int maxHP;
 
     public float speed;
     private float resetTimer;
@@ -31,6 +32,8 @@ public class PlayerCharacter : MonoBehaviour {
         magic = 20;
         defense = 10;
         resistance = 10;
+
+        maxHP = hp;
 
         speed = 2.5f;
         resetTimer = 0.0f;
@@ -155,6 +158,10 @@ public class PlayerCharacter : MonoBehaviour {
 
         if (stat == 1)
         {
+            if (hp + addition > maxHP)
+            {
+                addition = maxHP - hp;
+            }
             hp += addition;
         }
         else if (stat == 2)
