@@ -141,11 +141,37 @@ public class PlayerCharacter : MonoBehaviour {
         {
             return defense;
         }
-        else if (stat == 3)
+        else if (stat == 5)
         {
             return resistance;
         }
 
         return 0;
+    }
+
+    public void SetStat(int stat, int addition)
+    {
+        //1 = HP | 2 = Atk | 3 = Mag | 4 = Def | 5 = Res 
+
+        if (stat == 1)
+        {
+            hp += addition;
+        }
+        else if (stat == 2)
+        {
+            attack += addition;
+        }
+        else if (stat == 3)
+        {
+            magic += addition;
+        }
+        else if (stat == 4)
+        {
+            defense += addition;
+        }
+        else if (stat == 5)
+        {
+            resistance += addition;
+        }
     }
 }
