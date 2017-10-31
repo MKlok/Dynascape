@@ -50,7 +50,7 @@ public class CombatController : MonoBehaviour {
                         pc.ccCooldown.value = 0;
                         if (hit.transform.tag == "Attack")
                         {
-                            if (target != null && target.GetComponent<EnemyController>().HP > 0)
+                            if (target != null && target.GetComponent<EnemyController>().hp > 0)
                             {
                                 target.GetComponent<EnemyController>().TakeDamage(20);
 
