@@ -14,6 +14,7 @@ public class PlayerCharacter : MonoBehaviour {
 
     private bool resetAnimation;
     private bool addedtoList;
+    private bool defending;
 
     private int hp;
     private int attack;
@@ -43,6 +44,7 @@ public class PlayerCharacter : MonoBehaviour {
 
         resetAnimation = false;
         addedtoList = false;
+        defending = false;
     }
 
     // Update is called once per frame
@@ -72,9 +74,15 @@ public class PlayerCharacter : MonoBehaviour {
             resetTimer += Time.deltaTime;
             if (resetTimer >= 1f)
             {
+                defending = false;
                 AnimationUpdate(0);
             }
         }
+    }
+
+    public void Defend()
+    {
+        defending = true;
     }
 
     public void TakeDamage(int damage, bool physical)
@@ -100,6 +108,10 @@ public class PlayerCharacter : MonoBehaviour {
             {
                 damage = 0;
             }
+        }
+        if (defending)
+        {
+            damage /= 2;
         }
         hp -= damage;
     }

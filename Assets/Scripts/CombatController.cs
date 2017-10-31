@@ -62,6 +62,8 @@ public class CombatController : MonoBehaviour {
                         }
                         else if (hit.transform.tag == "Defend")
                         {
+                            pc.Defend();
+
                             topbarRefresh = 2;
 
                             pc.AnimationUpdate(2);                          
