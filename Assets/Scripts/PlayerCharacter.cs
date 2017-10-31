@@ -12,9 +12,6 @@ public class PlayerCharacter : MonoBehaviour {
 
     public CombatController cc;
 
-    public float turnCooldown;
-    private float resetTimer;
-
     private bool resetAnimation;
     private bool addedtoList;
 
@@ -24,18 +21,11 @@ public class PlayerCharacter : MonoBehaviour {
     private int defense;
     private int resistance;
 
-    private float speed;
+    public float speed;
+    private float resetTimer;
 
     // Use this for initialization
     void Start () {
-        turnCooldown = 2.5f;
-
-        ccCooldown.maxValue = turnCooldown;
-        sliderFill.color = Color.green;
-
-        resetAnimation = false;
-        addedtoList = false;
-
         hp = 120;
         attack = 20;
         magic = 20;
@@ -43,13 +33,20 @@ public class PlayerCharacter : MonoBehaviour {
         resistance = 10;
 
         speed = 2.5f;
+        resetTimer = 0.0f;
+
+        ccCooldown.maxValue = speed;
+        sliderFill.color = Color.green;
+
+        resetAnimation = false;
+        addedtoList = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         ccCooldown.value += Time.deltaTime;
 
-        if (ccCooldown.value < turnCooldown)
+        if (ccCooldown.value < speed)
         {
             ccCooldown.value += Time.deltaTime;
             if (sliderFill.color == Color.yellow)
@@ -77,6 +74,33 @@ public class PlayerCharacter : MonoBehaviour {
         }
     }
 
+    public void TakeDamage(int damage, bool physical)
+    {
+        if (physical)
+        {
+            if (damage > defense)
+            {
+                damage -= defense;
+            }
+            else
+            {
+                damage = 0;
+            }
+        }
+        else
+        {
+            if (damage > resistance)
+            {
+                damage -= resistance;
+            }
+            else
+            {
+                damage = 0;
+            }
+        }
+        hp -= damage;
+    }
+
     public void AnimationUpdate(int frame)
     {
         resetAnimation = true;
@@ -95,5 +119,33 @@ public class PlayerCharacter : MonoBehaviour {
     public void ClearedFromQueue()
     {
         addedtoList = false;
+    }
+
+    public int GetStat (int stat)
+    {
+        //1 = HP | 2 = Atk | 3 = Mag | 4 = Def | 5 = Res 
+
+        if (stat == 1)
+        {
+            return hp;
+        }
+        else if (stat == 2)
+        {
+            return attack;
+        }
+        else if (stat == 3)
+        {
+            return magic;
+        }
+        else if (stat == 4)
+        {
+            return defense;
+        }
+        else if (stat == 3)
+        {
+            return resistance;
+        }
+
+        return 0;
     }
 }
