@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
     public CombatHandler ch;
 
-    public int HP;
+    public int hp;
 
     private Color colorIni;
     private Color colorFin;
@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        HP = 100;
+        hp = 100;
 
         colorIni = Color.white;
         colorFin = Color.black;
@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (HP <= 0)
+		if (hp <= 0)
         {
             //GetComponent<SpriteRenderer>().color = Color.black;
             //Debug.Log("White");
@@ -53,6 +53,6 @@ public class EnemyController : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
-        HP -= damage;
+        hp -= damage;
     }
 }
