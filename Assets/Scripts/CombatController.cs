@@ -69,6 +69,8 @@ public class CombatController : MonoBehaviour {
                         }
                         else if (hit.transform.tag == "Heal")
                         {
+                            pc.SetStat(1, pc.GetStat(3));
+
                             topbarRefresh = 3;
 
                             pc.AnimationUpdate(3);
