@@ -14,8 +14,6 @@ public class CombatController : MonoBehaviour {
     public Transform crosshair;
     private Transform[] crosshairs;
 
-    private float resetTimer;
-
     private int topbarRefresh;
 
     // Use this for initialization
@@ -25,8 +23,6 @@ public class CombatController : MonoBehaviour {
         target = null;
 
         pc = null;
-
-        resetTimer = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -87,19 +83,10 @@ public class CombatController : MonoBehaviour {
                             pc.AnimationUpdate(4);
                             uh.MenuPress(topbarRefresh);
                         }
-                        resetTimer = 0;
                         RemoveTopFromQueue();
                     }
                 }
             }
-        }
-        if (resetTimer < 1f)
-        {
-            resetTimer += Time.deltaTime;
-        }
-        else
-        {
-            uh.MenuReset(topbarRefresh);
         }
     }
 

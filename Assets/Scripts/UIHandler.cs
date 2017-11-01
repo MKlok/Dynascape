@@ -50,11 +50,13 @@ public class UIHandler : MonoBehaviour {
 
             //7
         }
-        Debug.Log(button);
+
+        StartCoroutine(MenuReset(button, 0.3f));
     }
 
-    public void MenuReset(int frame)
+    IEnumerator MenuReset(int frame, float delay)
     {
+        yield return new WaitForSeconds(delay);
         //1 = Attack | 2 = Defend | 3 = Heal | 4 = Unique
 
         if (frame == 0)
