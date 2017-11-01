@@ -15,6 +15,7 @@ public class PlayerCharacter : MonoBehaviour {
     private bool resetAnimation;
     private bool addedtoList;
     private bool defending;
+    private bool isDead;
 
     private int hp;
     private int attack;
@@ -45,38 +46,46 @@ public class PlayerCharacter : MonoBehaviour {
         resetAnimation = false;
         addedtoList = false;
         defending = false;
+        isDead = false;
     }
 
     // Update is called once per frame
     void Update () {
-        ccCooldown.value += Time.deltaTime;
-
-        if (ccCooldown.value < speed)
+        if (!isDead)
         {
             ccCooldown.value += Time.deltaTime;
-            if (sliderFill.color == Color.yellow)
+
+            if (ccCooldown.value < speed)
             {
-                sliderFill.color = Color.green;
+                ccCooldown.value += Time.deltaTime;
+                if (sliderFill.color == Color.yellow)
+                {
+                    sliderFill.color = Color.green;
+                }
+            }
+            else
+            {
+                sliderFill.color = Color.yellow;
+                if (!addedtoList)
+                {
+                    addedtoList = true;
+                    cc.AddToQueue(this);
+                }
+            }
+
+            if (resetAnimation)
+            {
+                resetTimer += Time.deltaTime;
+                if (resetTimer >= 1f)
+                {
+                    defending = false;
+                    AnimationUpdate(0);
+                }
             }
         }
         else
         {
-            sliderFill.color = Color.yellow;
-            if (!addedtoList)
-            {
-                addedtoList = true;
-                cc.AddToQueue(this);
-            }
-        }
 
-        if (resetAnimation)
-        {
-            resetTimer += Time.deltaTime;
-            if (resetTimer >= 1f)
-            {
-                defending = false;
-                AnimationUpdate(0);
-            }
         }
     }
 
@@ -114,6 +123,14 @@ public class PlayerCharacter : MonoBehaviour {
             damage /= 2;
         }
         hp -= damage;
+
+        Debug.Log(gameObject.name + " hp = " + hp);
+
+        if (hp <= 0)
+        {
+            isDead = true;
+            gameObject.tag = "Untagged";
+        }
     }
 
     public void AnimationUpdate(int frame)
