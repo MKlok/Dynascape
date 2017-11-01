@@ -19,18 +19,26 @@ public class UIHandler : MonoBehaviour {
     public Sprite[] menuSheet;
     public Text[] hpTracker;
 
-	// Use this for initialization
-	void Start () {
+    public float orthographicSize = 5;
+    public float aspect = 1.33333f;
+
+    // Use this for initialization
+    void Start () {
         foreach(Text text in hpTracker)
         {
             text.color = Color.white;
-        }   
+        }
+
+        Camera.main.projectionMatrix = Matrix4x4.Ortho(
+            -orthographicSize * aspect, orthographicSize * aspect,
+            -orthographicSize, orthographicSize,
+            Camera.main.nearClipPlane, Camera.main.farClipPlane);
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 
     public void SetSlider(float maxVal, int tracker)
     {
