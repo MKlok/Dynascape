@@ -78,6 +78,11 @@ public class EnemyController : MonoBehaviour {
     private void AttackPlayer()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
+        
+        if (targets.Length == 0)
+        {
+            return;
+        }
 
         int rn = Random.Range(0, targets.Length);
 
