@@ -54,7 +54,7 @@ public class CombatController : MonoBehaviour {
                             {
                                 target.GetComponent<EnemyController>().TakeDamage(pc.GetStat(2));
 
-                                topbarRefresh = 1;
+                                topbarRefresh = 0;
 
                                 pc.AnimationUpdate(1);
                                 uh.MenuPress(topbarRefresh);
@@ -64,7 +64,7 @@ public class CombatController : MonoBehaviour {
                         {
                             pc.Defend();
 
-                            topbarRefresh = 2;
+                            topbarRefresh = 1;
 
                             pc.AnimationUpdate(2);                          
                             uh.MenuPress(topbarRefresh);
@@ -73,9 +73,18 @@ public class CombatController : MonoBehaviour {
                         {
                             pc.SetStat(1, pc.GetStat(3));
 
-                            topbarRefresh = 3;
+                            topbarRefresh = 2;
 
                             pc.AnimationUpdate(3);
+                            uh.MenuPress(topbarRefresh);
+                        }
+                        else if (hit.transform.tag == "UniqueAction")
+                        {
+                            //Unique action call
+
+                            topbarRefresh = 3;
+
+                            pc.AnimationUpdate(4);
                             uh.MenuPress(topbarRefresh);
                         }
                         resetTimer = 0;
@@ -84,7 +93,7 @@ public class CombatController : MonoBehaviour {
                 }
             }
         }
-        if (resetTimer < 0.3f)
+        if (resetTimer < 1f)
         {
             resetTimer += Time.deltaTime;
         }

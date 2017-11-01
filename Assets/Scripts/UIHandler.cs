@@ -6,14 +6,13 @@ public class UIHandler : MonoBehaviour {
     public Transform attack;
     public Transform defend;
     public Transform heal;
+    public Transform unique;
 
     public Sprite[] menuSheet;
 
-    private int frame;
-
 	// Use this for initialization
 	void Start () {
-        frame = 0;
+
 	}
 	
 	// Update is called once per frame
@@ -25,54 +24,56 @@ public class UIHandler : MonoBehaviour {
     {
         //1 = Attack | 2 = Defend | 3 = Heal | 4 = Unique
 
-        frame = button*2 - 1;
+        int frame = button + 4;
 
-        if (button == 1)
+        if (button == 0)
         {
             attack.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
 
             //1
         }
-        if (button == 2)
+        if (button == 1)
         {
             defend.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
 
             //3
         }
-        if (button == 3)
+        if (button == 2)
         {
             heal.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
 
             //5
         }
-        if (button == 4)
+        if (button == 3)
         {
-            //heal.GetComponent<SpriteRenderer>().sprite = menuSheet[button];
+            unique.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
 
             //7
         }
-
+        Debug.Log(button);
     }
 
     public void MenuReset(int frame)
     {
         //1 = Attack | 2 = Defend | 3 = Heal | 4 = Unique
 
-        if (frame == 1)
+        if (frame == 0)
         {
-            attack.GetComponent<SpriteRenderer>().sprite = menuSheet[frame - 1];
+            attack.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
         }
-        if (frame == 2)
+        if (frame == 1)
         {
             defend.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
         }
+        if (frame == 2)
+        {
+            heal.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
+        }
         if (frame == 3)
         {
-            heal.GetComponent<SpriteRenderer>().sprite = menuSheet[frame + 1];
+            unique.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
         }
-        if (frame == 4)
-        {
-            //heal.GetComponent<SpriteRenderer>().sprite = menuSheet[button];
-        }
+
+        Debug.Log(frame);
     }
 }
