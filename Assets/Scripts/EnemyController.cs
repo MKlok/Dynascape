@@ -13,8 +13,10 @@ public class EnemyController : MonoBehaviour {
     private Color lerpedColor;
 
     private float duration;
-
     private float t;
+    private float attackSpeed;
+
+    private bool isDead;
 
     Renderer _renderer;
 
@@ -22,31 +24,42 @@ public class EnemyController : MonoBehaviour {
     void Start () {
         hp = 100;
 
-        damage = 200;
+        damage = 30;
 
         colorIni = Color.white;
         colorFin = Color.black;
-        duration = 1.5f;
         lerpedColor = Color.white;
 
         t = 0;
+        duration = 1.5f;
+        attackSpeed = 1.5f;
+
+        isDead = false;
 
         _renderer = GetComponent<Renderer>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (hp <= 0)
+        t += Time.deltaTime;
+        if (isDead)
         {
             gameObject.tag = "Untagged";
             lerpedColor = Color.Lerp(colorIni, colorFin, t);
             _renderer.material.color = lerpedColor;
-
-            t += Time.deltaTime;
+            
             if (t >= duration)
             { 
                 ch.UpdateList();
                 Destroy(gameObject);
+            }
+        }
+        else
+        {
+           if (t >= attackSpeed)
+            {
+                AttackPlayer();
+                t = 0;
             }
         }
 	}
@@ -54,6 +67,12 @@ public class EnemyController : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         hp -= damage;
+
+        if(hp <= 0)
+        {
+            isDead = true;
+            t = 0;
+        }
     }
 
     private void AttackPlayer()
