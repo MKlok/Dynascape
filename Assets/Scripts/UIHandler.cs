@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour {
     public Transform attack;
@@ -9,6 +10,7 @@ public class UIHandler : MonoBehaviour {
     public Transform unique;
 
     public Sprite[] menuSheet;
+    public Text[] hpTracker;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,11 @@ public class UIHandler : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void UpdateHP(int currHP, int maxHP, int tracker)
+    {
+        hpTracker[tracker].text = currHP.ToString() + " / " + maxHP.ToString();
+    }
 
     public void MenuPress(int button)
     {

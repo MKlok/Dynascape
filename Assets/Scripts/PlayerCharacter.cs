@@ -11,6 +11,7 @@ public class PlayerCharacter : MonoBehaviour {
     public Image sliderFill;
 
     public CombatController cc;
+    public UIHandler uh;
 
     private bool resetAnimation;
     private bool addedtoList;
@@ -23,6 +24,8 @@ public class PlayerCharacter : MonoBehaviour {
     private int defense;
     private int resistance;
     private int maxHP;
+
+    public int playerNumber;
 
     public float speed;
     private float resetTimer;
@@ -47,6 +50,8 @@ public class PlayerCharacter : MonoBehaviour {
         addedtoList = false;
         defending = false;
         isDead = false;
+
+        uh.UpdateHP(hp, maxHP, playerNumber);
     }
 
     // Update is called once per frame
@@ -124,12 +129,14 @@ public class PlayerCharacter : MonoBehaviour {
         }
         hp -= damage;
 
-        Debug.Log(gameObject.name + " hp = " + hp);
+        uh.UpdateHP(hp, maxHP, playerNumber);
 
         if (hp <= 0)
         {
             isDead = true;
             gameObject.tag = "Untagged";
+
+            uh.UpdateHP(0, maxHP, 0);
         }
     }
 
