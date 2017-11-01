@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
     public CombatHandler ch;
 
-    public int hp;
+    private int hp;
+    private int damage;
 
     private Color colorIni;
     private Color colorFin;
@@ -21,6 +22,8 @@ public class EnemyController : MonoBehaviour {
     void Start () {
         hp = 100;
 
+        damage = 200;
+
         colorIni = Color.white;
         colorFin = Color.black;
         duration = 1.5f;
@@ -35,13 +38,13 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
 		if (hp <= 0)
         {
+            gameObject.tag = "Untagged";
             lerpedColor = Color.Lerp(colorIni, colorFin, t);
             _renderer.material.color = lerpedColor;
 
             t += Time.deltaTime;
             if (t >= duration)
-            {
-                gameObject.tag = "Untagged";
+            { 
                 ch.UpdateList();
                 Destroy(gameObject);
             }
@@ -51,5 +54,14 @@ public class EnemyController : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         hp -= damage;
+    }
+
+    private void AttackPlayer()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
+
+        int rn = Random.Range(0, targets.Length);
+
+        targets[rn].GetComponent<PlayerCharacter>().TakeDamage(damage, false);
     }
 }
