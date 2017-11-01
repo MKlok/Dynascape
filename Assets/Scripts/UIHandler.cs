@@ -9,6 +9,9 @@ public class UIHandler : MonoBehaviour {
     public Transform heal;
     public Transform unique;
 
+    public Transform topBar;
+    public Transform bottomBar;
+
     public Slider[] playerCooldown;
 
     public Image[] sliderFill;
@@ -21,9 +24,7 @@ public class UIHandler : MonoBehaviour {
         foreach(Text text in hpTracker)
         {
             text.color = Color.white;
-        }
-
-        
+        }   
     }
 	
 	// Update is called once per frame
@@ -73,33 +74,25 @@ public class UIHandler : MonoBehaviour {
 
     public void MenuPress(int button)
     {
-        //1 = Attack | 2 = Defend | 3 = Heal | 4 = Unique
+        //0 = Attack | 1 = Defend | 2 = Heal | 3 = Unique
 
         int frame = button + 4;
 
         if (button == 0)
         {
             attack.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
-
-            //1
         }
         if (button == 1)
         {
             defend.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
-
-            //3
         }
         if (button == 2)
         {
             heal.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
-
-            //5
         }
         if (button == 3)
         {
             unique.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
-
-            //7
         }
 
         StartCoroutine(MenuReset(button, 0.3f));
@@ -108,7 +101,7 @@ public class UIHandler : MonoBehaviour {
     IEnumerator MenuReset(int frame, float delay)
     {
         yield return new WaitForSeconds(delay);
-        //1 = Attack | 2 = Defend | 3 = Heal | 4 = Unique
+        //0 = Attack | 1 = Defend | 2 = Heal | 3 = Unique
 
         if (frame == 0)
         {
@@ -126,7 +119,5 @@ public class UIHandler : MonoBehaviour {
         {
             unique.GetComponent<SpriteRenderer>().sprite = menuSheet[frame];
         }
-
-        Debug.Log(frame);
     }
 }

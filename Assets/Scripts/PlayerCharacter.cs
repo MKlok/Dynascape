@@ -55,7 +55,6 @@ public class PlayerCharacter : MonoBehaviour {
             if (uh.playerCooldown[playerNumber].value < speed)
             {
                 uh.UpdateSlider(false, playerNumber, Color.green);
-                Debug.Log(uh.playerCooldown[playerNumber].value);      
             }
             else
             {
