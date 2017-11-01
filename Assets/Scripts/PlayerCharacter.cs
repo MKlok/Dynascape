@@ -6,10 +6,6 @@ using UnityEngine.UI;
 public class PlayerCharacter : MonoBehaviour {
     public Sprite[] animationHandler;
 
-    public Slider ccCooldown;
-
-    public Image sliderFill;
-
     public CombatController cc;
     public UIHandler uh;
 
@@ -43,34 +39,27 @@ public class PlayerCharacter : MonoBehaviour {
         speed = 2.5f;
         resetTimer = 0.0f;
 
-        ccCooldown.maxValue = speed;
-        sliderFill.color = Color.green;
-
         resetAnimation = false;
         addedtoList = false;
         defending = false;
         isDead = false;
 
         uh.UpdateHP(hp, maxHP, playerNumber);
+        uh.SetSlider(speed, playerNumber);
     }
 
     // Update is called once per frame
     void Update () {
         if (!isDead)
         {
-            ccCooldown.value += Time.deltaTime;
-
-            if (ccCooldown.value < speed)
+            if (uh.playerCooldown[playerNumber].value < speed)
             {
-                ccCooldown.value += Time.deltaTime;
-                if (sliderFill.color == Color.yellow)
-                {
-                    sliderFill.color = Color.green;
-                }
+                uh.UpdateSlider(false, playerNumber, Color.green);
+                Debug.Log(uh.playerCooldown[playerNumber].value);      
             }
             else
             {
-                sliderFill.color = Color.yellow;
+                uh.UpdateSlider(false, playerNumber, Color.yellow);
                 if (!addedtoList)
                 {
                     addedtoList = true;

@@ -41,9 +41,9 @@ public class CombatController : MonoBehaviour {
                 }
                 if (!ec && pc != null && hit.transform.tag != "Player")
                 {
-                    if (pc.ccCooldown.value >= pc.speed)
+                    if (uh.playerCooldown[pc.playerNumber].value >= pc.speed)
                     {
-                        pc.ccCooldown.value = 0;
+                        uh.UpdateSlider(true, pc.playerNumber);
                         if (hit.transform.tag == "Attack")
                         {
                             if (target != null)

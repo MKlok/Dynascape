@@ -9,6 +9,10 @@ public class UIHandler : MonoBehaviour {
     public Transform heal;
     public Transform unique;
 
+    public Slider[] playerCooldown;
+
+    public Image[] sliderFill;
+
     public Sprite[] menuSheet;
     public Text[] hpTracker;
 
@@ -18,12 +22,49 @@ public class UIHandler : MonoBehaviour {
         {
             text.color = Color.white;
         }
-	}
+
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void SetSlider(float maxVal, int tracker)
+    {
+        playerCooldown[tracker].maxValue = maxVal;
+
+        sliderFill[tracker].color = Color.green;
+    }
+
+    public void UpdateSlider(bool refresh, int tracker, Color color)
+    {
+        if (!refresh)
+        {
+            playerCooldown[tracker].value += Time.deltaTime;
+        }
+        else
+        {
+            playerCooldown[tracker].value = 0;
+        }
+        if (color != sliderFill[tracker].color)
+        {
+            sliderFill[tracker].color = color;
+        }
+    }
+
+    public void UpdateSlider(bool refresh, int tracker)
+    {
+        if (!refresh)
+        {
+            playerCooldown[tracker].value += Time.deltaTime;
+        }
+        else
+        {
+            playerCooldown[tracker].value = 0;
+        }
+    }
 
     public void UpdateHP(int currHP, int maxHP, int tracker)
     {
