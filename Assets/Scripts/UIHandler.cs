@@ -14,7 +14,10 @@ public class UIHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        foreach(Text text in hpTracker)
+        {
+            text.color = Color.white;
+        }
 	}
 	
 	// Update is called once per frame
