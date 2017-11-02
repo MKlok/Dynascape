@@ -29,6 +29,11 @@ public class UIHandler : MonoBehaviour {
             text.color = Color.white;
         }
 
+        for(int i = 0; i < playerCooldown.Length; i++)
+        {
+            playerCooldown[i].transform.position = new Vector3(Screen.width - (playerCooldown[i].GetComponent<RectTransform>().rect.width / 1.5f), (playerCooldown[i].GetComponent<RectTransform>().rect.height / 1.5f) + (i * (playerCooldown[i].GetComponent<RectTransform>().rect.height * 1.25f)));
+        }
+
         Camera.main.projectionMatrix = Matrix4x4.Ortho(
             -orthographicSize * aspect, orthographicSize * aspect,
             -orthographicSize, orthographicSize,
