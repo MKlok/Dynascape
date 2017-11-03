@@ -18,13 +18,14 @@ public class UIHandler : MonoBehaviour {
 
     public Sprite[] menuSheet;
     public Text[] hpTracker;
+    public Text[] enemyTracker;
 
     public float orthographicSize = 5;
     public float aspect = 1.33333f;
 
     // Use this for initialization
     void Start () {
-        foreach(Text text in hpTracker)
+        foreach(Text text in FindObjectsOfType<Text>())
         {
             text.color = Color.white;
         }
