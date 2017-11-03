@@ -31,11 +31,11 @@ public class UIHandler : MonoBehaviour {
 
         for(int i = 0; i < playerCooldown.Length; i++)
         {
-            playerCooldown[i].transform.position = new Vector3(Screen.width - (playerCooldown[i].GetComponent<RectTransform>().rect.width / 1.5f), (playerCooldown[i].GetComponent<RectTransform>().rect.height / 1.5f) + (i * (playerCooldown[i].GetComponent<RectTransform>().rect.height * 1.25f)));
+            playerCooldown[i].transform.position = new Vector3(Screen.width - Screen.width / 9, (Screen.height / 28) * ((i*1.5f)+1));
 
             if (hpTracker.Length == playerCooldown.Length)
             {
-                hpTracker[i].transform.position = new Vector3(playerCooldown[i].transform.position.x - playerCooldown[i].GetComponent<RectTransform>().rect.width * 1.1f, playerCooldown[i].transform.position.y);
+                hpTracker[i].transform.position = new Vector3(Screen.width - Screen.width / 3, playerCooldown[i].transform.position.y);
             }
             else
             {
