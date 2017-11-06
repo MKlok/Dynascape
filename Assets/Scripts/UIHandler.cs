@@ -44,6 +44,15 @@ public class UIHandler : MonoBehaviour {
             }
         }
 
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemyTracker[i].text = enemies[i].name;
+            enemyTracker[i].transform.position = new Vector3(Screen.width - (Screen.width / 1.25f) , (Screen.height / 28) * ((i * 1.5f) + 1));
+        }
+
+
         Camera.main.projectionMatrix = Matrix4x4.Ortho(
             -orthographicSize * aspect, orthographicSize * aspect,
             -orthographicSize, orthographicSize,
