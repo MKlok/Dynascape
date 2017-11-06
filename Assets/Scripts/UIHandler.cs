@@ -49,7 +49,7 @@ public class UIHandler : MonoBehaviour {
         for (int i = 0; i < enemies.Length; i++)
         {
             enemyTracker[i].text = enemies[i].name;
-            enemyTracker[i].transform.position = new Vector3(Screen.width - (Screen.width / 1.25f) , (Screen.height / 28) * ((i * 1.5f) + 1));
+            enemyTracker[i].transform.position = new Vector3(Screen.width - (Screen.width / 1.15f) , (Screen.height / 28) * ((i * (1.5f / (enemies.Length * 4))) + 1));
         }
 
 
