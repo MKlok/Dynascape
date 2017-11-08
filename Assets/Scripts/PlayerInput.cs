@@ -199,9 +199,9 @@ public class PlayerInput : MonoBehaviour {
         return disableControls;
     }
 
-    public void SetControls()
+    public void SetControls(bool b)
     {
-        disableControls = false;
+        disableControls = b;
     }
 
     public GameObject GetPlayer()

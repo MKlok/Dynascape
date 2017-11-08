@@ -33,7 +33,7 @@ public class CombatHandler : MonoBehaviour
 
         if (enemyList.Length == 0)
         {
-            overWorldController.GetComponent<PlayerInput>().SetControls();
+            overWorldController.GetComponent<PlayerInput>().SetControls(false);
             LoadOverworld();
         }
     }
