@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f5707799ef4126042b4bec47d7762727
-timeCreated: 1510050802
+timeCreated: 1510051967
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -184,7 +184,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 240
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -197,7 +197,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 240
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -210,7 +210,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 240
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -223,7 +223,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 240
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -236,7 +236,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 240
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -248,8 +248,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_5
       rect:
         serializedVersion: 2
-        x: 80
-        y: 240
+        x: 0
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -261,8 +261,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 240
+        x: 16
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -274,8 +274,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_7
       rect:
         serializedVersion: 2
-        x: 112
-        y: 240
+        x: 32
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -287,8 +287,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_8
       rect:
         serializedVersion: 2
-        x: 128
-        y: 240
+        x: 48
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -300,8 +300,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_9
       rect:
         serializedVersion: 2
-        x: 144
-        y: 240
+        x: 0
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -313,8 +313,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_10
       rect:
         serializedVersion: 2
-        x: 160
-        y: 240
+        x: 16
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -326,8 +326,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_11
       rect:
         serializedVersion: 2
-        x: 176
-        y: 240
+        x: 32
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -339,8 +339,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_12
       rect:
         serializedVersion: 2
-        x: 224
-        y: 240
+        x: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -352,8 +352,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 224
+        x: 64
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -365,8 +365,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_14
       rect:
         serializedVersion: 2
-        x: 16
-        y: 224
+        x: 80
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -378,8 +378,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_15
       rect:
         serializedVersion: 2
-        x: 32
-        y: 224
+        x: 16
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -391,8 +391,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_16
       rect:
         serializedVersion: 2
-        x: 48
-        y: 224
+        x: 32
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -404,8 +404,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_17
       rect:
         serializedVersion: 2
-        x: 64
-        y: 224
+        x: 48
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -417,8 +417,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_18
       rect:
         serializedVersion: 2
-        x: 80
-        y: 224
+        x: 64
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -430,8 +430,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_19
       rect:
         serializedVersion: 2
-        x: 96
-        y: 224
+        x: 80
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -443,8 +443,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_20
       rect:
         serializedVersion: 2
-        x: 112
-        y: 224
+        x: 32
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -456,8 +456,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_21
       rect:
         serializedVersion: 2
-        x: 128
-        y: 224
+        x: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -469,8 +469,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_22
       rect:
         serializedVersion: 2
-        x: 144
-        y: 224
+        x: 64
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -482,8 +482,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_23
       rect:
         serializedVersion: 2
-        x: 160
-        y: 224
+        x: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -495,8 +495,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_24
       rect:
         serializedVersion: 2
-        x: 176
-        y: 224
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -508,8 +508,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_25
       rect:
         serializedVersion: 2
-        x: 208
-        y: 224
+        x: 32
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -521,8 +521,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_26
       rect:
         serializedVersion: 2
-        x: 224
-        y: 224
+        x: 48
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -534,8 +534,8 @@ TextureImporter:
       name: MrBeast_tileset_CleanedUp_27
       rect:
         serializedVersion: 2
-        x: 240
-        y: 224
+        x: 64
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -548,7 +548,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 208
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -561,7 +561,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 208
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -574,7 +574,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 208
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -587,7 +587,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 208
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -600,878 +600,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_33
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_34
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_35
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_36
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_37
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_38
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_39
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_40
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_41
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_42
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_43
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_44
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_45
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_46
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_47
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_48
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_49
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_50
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_51
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_52
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_53
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_54
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_55
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_56
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_57
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_58
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_59
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_60
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_61
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_62
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_63
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_64
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_65
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_66
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_67
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_68
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_69
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_70
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_71
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_72
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_73
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_74
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_75
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_76
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_77
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_78
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_79
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_80
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_81
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_82
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_83
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_84
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_85
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_86
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_87
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_88
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_89
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_90
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_91
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_92
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_93
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_94
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_95
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_96
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_97
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_98
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MrBeast_tileset_CleanedUp_99
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
+        y: 0
         width: 16
         height: 16
       alignment: 0

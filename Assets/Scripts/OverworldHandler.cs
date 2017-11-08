@@ -14,7 +14,7 @@ public class OverworldHandler : MonoBehaviour {
             -orthographicSize, orthographicSize,
             Camera.main.nearClipPlane, Camera.main.farClipPlane);
     }
-	
+
 	// Update is called once per frame
 	void Update () {
 		
