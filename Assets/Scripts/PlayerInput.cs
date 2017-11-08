@@ -184,11 +184,11 @@ public class PlayerInput : MonoBehaviour {
 
         encounterTimer--;
 
-        if (Random.Range(encounterTracker, 9) <= 4)
+        if (Random.Range(encounterTracker, 20) <= 6)
         {
             Debug.Log("Encounter! RN:" + encounterTracker);
 
-            startEncounter = true;
+            //startEncounter = true;
             GetComponent<AudioSource>().clip = enterBattle;
             GetComponent<AudioSource>().Play();
         }
