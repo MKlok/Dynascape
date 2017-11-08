@@ -11,7 +11,6 @@ public class OverworldHandler : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        pauze = false;
         Camera.main.projectionMatrix = Matrix4x4.Ortho(
             -orthographicSize * aspect, orthographicSize * aspect,
             -orthographicSize, orthographicSize,
