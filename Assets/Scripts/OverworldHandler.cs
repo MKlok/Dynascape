@@ -11,6 +11,7 @@ public class OverworldHandler : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        pauze = false;
         Camera.main.projectionMatrix = Matrix4x4.Ortho(
             -orthographicSize * aspect, orthographicSize * aspect,
             -orthographicSize, orthographicSize,
@@ -21,8 +22,16 @@ public class OverworldHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            PauzeGame();
+        }
+    }
+
+    private void PauzeGame()
+    {
+
+    }
 
     private void InstanciateOcean(int width, int height)
     {
