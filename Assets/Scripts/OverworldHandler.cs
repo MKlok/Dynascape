@@ -9,6 +9,10 @@ public class OverworldHandler : MonoBehaviour {
 
     public Sprite oceanTile;
 
+    public Transform pauzeScreen;
+
+    public Transform player;
+
     // Use this for initialization
     void Start () {
         Camera.main.projectionMatrix = Matrix4x4.Ortho(
@@ -29,7 +33,7 @@ public class OverworldHandler : MonoBehaviour {
 
     private void PauzeGame()
     {
-
+        Instantiate(pauzeScreen, player.position, Quaternion.identity);
     }
 
     private void InstanciateOcean(int width, int height)
