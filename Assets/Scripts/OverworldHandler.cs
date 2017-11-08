@@ -33,7 +33,7 @@ public class OverworldHandler : MonoBehaviour {
                 GameObject t = new GameObject();
                 t.AddComponent<SpriteRenderer>();
                 t.GetComponent<SpriteRenderer>().sprite = oceanTile;
-                t.GetComponent<SpriteRenderer>().sortingOrder = -1;
+                t.GetComponent<SpriteRenderer>().sortingOrder = -2;
                 Vector3 pos = new Vector3(x * 0.5f - 11, y * 0.5f - 8f);
                 Instantiate(t, pos, Quaternion.identity);
             }
