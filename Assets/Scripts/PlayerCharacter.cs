@@ -124,7 +124,7 @@ public class PlayerCharacter : MonoBehaviour {
             isDead = true;
             gameObject.tag = "Untagged";
 
-            uh.UpdateHP(0, maxHP, 0);
+            uh.UpdateHP(0, maxHP, playerNumber);
         }
     }
 
@@ -191,6 +191,8 @@ public class PlayerCharacter : MonoBehaviour {
                 addition = maxHP - hp;
             }
             hp += addition;
+
+            uh.UpdateHP(hp, maxHP, playerNumber);
         }
         else if (stat == 2)
         {
