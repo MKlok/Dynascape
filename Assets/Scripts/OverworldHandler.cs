@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OverworldHandler : MonoBehaviour {
+    public PlayerInput pin;
 
     public float orthographicSize = 5;
     public float aspect = 1.33333f;
@@ -11,10 +12,11 @@ public class OverworldHandler : MonoBehaviour {
 
     public Transform pauzeScreen;
 
-    public Transform player;
+    private Transform pauze;
 
     // Use this for initialization
     void Start () {
+        pauze = null;
         Camera.main.projectionMatrix = Matrix4x4.Ortho(
             -orthographicSize * aspect, orthographicSize * aspect,
             -orthographicSize, orthographicSize,
@@ -25,7 +27,7 @@ public class OverworldHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
             PauzeGame();
         }
@@ -33,7 +35,19 @@ public class OverworldHandler : MonoBehaviour {
 
     private void PauzeGame()
     {
-        Instantiate(pauzeScreen, player.position, Quaternion.identity);
+        if (pauze == null)
+        {
+            pauze = Instantiate(pauzeScreen, pin.transform.position, Quaternion.identity);
+
+            pin.SetControls(true);
+        }
+        else if (pauze != null)
+        {
+            Destroy(pauze.gameObject);
+            pauze = null;
+
+            pin.SetControls(false);
+        }
     }
 
     private void InstanciateOcean(int width, int height)
