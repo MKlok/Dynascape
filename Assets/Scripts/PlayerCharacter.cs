@@ -24,6 +24,7 @@ public class PlayerCharacter : MonoBehaviour {
     public int playerNumber;
 
     public string charName;
+    public string charClass;
 
     public float speed;
     private float resetTimer;
@@ -42,6 +43,7 @@ public class PlayerCharacter : MonoBehaviour {
         speed = 0;
 
         charName = "Base";
+        charClass = "Base";
 
         resetTimer = 0.0f;
 
@@ -235,6 +237,7 @@ public class PlayerCharacter : MonoBehaviour {
             speed = 2.5f;
 
             charName = "Ella Tolbert";
+            charClass = "Paladin";
         }
         else if (num == 1)
         {
@@ -249,6 +252,7 @@ public class PlayerCharacter : MonoBehaviour {
             speed = 2.2f;
 
             charName = "Viktor Langdon";
+            charClass = "Fighter";
         }
         else if (num == 2)
         {
@@ -263,6 +267,7 @@ public class PlayerCharacter : MonoBehaviour {
             speed = 2f;
 
             charName = "Dexter Solstein";
+            charClass = "Mage";
         }
         else
         {
