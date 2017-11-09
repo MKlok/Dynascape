@@ -23,26 +23,34 @@ public class PlayerCharacter : MonoBehaviour {
 
     public int playerNumber;
 
+    public string charName;
+
     public float speed;
     private float resetTimer;
 
     // Use this for initialization
     void Start () {
-        hp = 120;
-        attack = 20;
-        magic = 20;
-        defense = 10;
-        resistance = 10;
+
+        hp = 0;
+        attack = 0;
+        magic = 0;
+        defense = 0;
+        resistance = 0;
 
         maxHP = hp;
 
-        speed = 2.5f;
+        speed = 0;
+
+        charName = "Base";
+
         resetTimer = 0.0f;
 
         resetAnimation = false;
         addedtoList = false;
         defending = false;
         isDead = false;
+
+        SetChar(playerNumber);
 
         uh.UpdateHP(hp, maxHP, playerNumber);
         uh.SetSlider(speed, playerNumber);
@@ -209,6 +217,56 @@ public class PlayerCharacter : MonoBehaviour {
         else if (stat == 5)
         {
             resistance += addition;
+        }
+    }
+
+    public void SetChar(int num)
+    {
+        if (num == 0)
+        {
+            hp = 145;
+            attack = 18;
+            magic = 14;
+            defense = 15;
+            resistance = 15;
+
+            maxHP = hp;
+
+            speed = 2.5f;
+
+            charName = "Ella Tolbert";
+        }
+        else if (num == 1)
+        {
+            hp = 110;
+            attack = 24;
+            magic = 18;
+            defense = 10;
+            resistance = 10;
+
+            maxHP = hp;
+
+            speed = 2.2f;
+
+            charName = "Viktor Langdon";
+        }
+        else if (num == 2)
+        {
+            hp = 100;
+            attack = 15;
+            magic = 25;
+            defense = 7;
+            resistance = 13;
+
+            maxHP = hp;
+
+            speed = 2f;
+
+            charName = "Dexter Solstein";
+        }
+        else
+        {
+            return;
         }
     }
 }
