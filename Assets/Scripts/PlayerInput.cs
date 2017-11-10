@@ -78,7 +78,10 @@ public class PlayerInput : MonoBehaviour {
                 PlayAnimation(0);
                 currKey = "S";
             }
-            encounterTimer += Time.deltaTime;
+            if (!Input.GetKey(KeyCode.Escape))
+            {
+                encounterTimer += Time.deltaTime;
+            }
         }
         else if (!disableControls)
         {
