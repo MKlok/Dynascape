@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OverworldHandler : MonoBehaviour {
     private PlayerCharacter pc;
@@ -14,8 +15,16 @@ public class OverworldHandler : MonoBehaviour {
     public Transform pauzeScreen;
     private Transform pauze;
 
+    public Text[] pauzeText;
+
     // Use this for initialization
     void Start () {
+        foreach (Text text in pauzeText)
+        {
+            text.color = Color.white;
+            text.gameObject.SetActive(false);
+        }
+
         pc = new PlayerCharacter();
 
         pauze = null;
@@ -42,15 +51,20 @@ public class OverworldHandler : MonoBehaviour {
         {
             pauze = Instantiate(pauzeScreen, pin.transform.position, Quaternion.identity);
 
+            foreach (Text text in pauzeText)
+            {
+                text.gameObject.SetActive(true);
+            }
+
             pin.SetControls(true);
             pc.SetChar(0);
-            Debug.Log(pc.GetStat(0) + ", " + pc.charName + ", " + pc.charClass);
+            pauzeText[0].text = pc.charName + "                 " + pc.charClass + "                HP: " + pc.GetStat(0).ToString();
 
             pc.SetChar(1);
-            Debug.Log(pc.GetStat(0) + ", " + pc.charName + ", " + pc.charClass);
+            pauzeText[1].text = pc.charName + "                 " + pc.charClass + "                HP: " + pc.GetStat(0).ToString();
 
             pc.SetChar(2);
-            Debug.Log(pc.GetStat(0) + ", " + pc.charName + ", " + pc.charClass);
+            pauzeText[2].text = pc.charName + "                 " + pc.charClass + "                HP: " + pc.GetStat(0).ToString();
         }
         else if (pauze != null)
         {
@@ -58,6 +72,11 @@ public class OverworldHandler : MonoBehaviour {
             pauze = null;
 
             pin.SetControls(false);
+
+            foreach (Text text in pauzeText)
+            {
+                text.gameObject.SetActive(false);
+            }
         }
     }
 
