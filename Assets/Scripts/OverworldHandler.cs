@@ -51,20 +51,25 @@ public class OverworldHandler : MonoBehaviour {
         {
             pauze = Instantiate(pauzeScreen, pin.transform.position, Quaternion.identity);
 
-            foreach (Text text in pauzeText)
-            {
-                text.gameObject.SetActive(true);
+            for (int i = 0; i < pauzeText.Length; i++)
+            {                
+                int i2 = i + i;
+
+                if (i2 != 4) {
+                    i2 = 4 - i2;
+                }
+                else
+                {
+                    i2 = 1000000;
+                }
+
+                pc.SetChar(i);
+                pauzeText[i].text = pc.charName + "                 " + pc.charClass + "                HP: " + pc.GetStat(0).ToString();
+                pauzeText[i].transform.position = new Vector3(Screen.width / 2 + (Screen.width / 5), Screen.height / 2.7f + Screen.height / i2);
+                pauzeText[i].gameObject.SetActive(true);
             }
 
             pin.SetControls(true);
-            pc.SetChar(0);
-            pauzeText[0].text = pc.charName + "                 " + pc.charClass + "                HP: " + pc.GetStat(0).ToString();
-
-            pc.SetChar(1);
-            pauzeText[1].text = pc.charName + "                 " + pc.charClass + "                HP: " + pc.GetStat(0).ToString();
-
-            pc.SetChar(2);
-            pauzeText[2].text = pc.charName + "                 " + pc.charClass + "                HP: " + pc.GetStat(0).ToString();
         }
         else if (pauze != null)
         {
