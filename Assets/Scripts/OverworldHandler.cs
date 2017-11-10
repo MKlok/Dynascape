@@ -17,6 +17,9 @@ public class OverworldHandler : MonoBehaviour {
 
     public Text[] pauzeText;
 
+    public Sprite[] charSplash;
+    private GameObject[] charStorage;
+
     // Use this for initialization
     void Start () {
         foreach (Text text in pauzeText)
@@ -26,6 +29,7 @@ public class OverworldHandler : MonoBehaviour {
         }
 
         pc = new PlayerCharacter();
+        charStorage = new GameObject[charSplash.Length];
 
         pauze = null;
 
@@ -52,7 +56,7 @@ public class OverworldHandler : MonoBehaviour {
             pauze = Instantiate(pauzeScreen, pin.transform.position, Quaternion.identity);
 
             for (int i = 0; i < pauzeText.Length; i++)
-            {                
+            {
                 int i2 = i + i;
 
                 if (i2 != 4) {
@@ -67,6 +71,15 @@ public class OverworldHandler : MonoBehaviour {
                 pauzeText[i].text = pc.charName + "                 " + pc.charClass + "                HP: " + pc.GetStat(0).ToString();
                 pauzeText[i].transform.position = new Vector3(Screen.width / 2 + (Screen.width / 5), Screen.height / 2.7f + Screen.height / i2);
                 pauzeText[i].gameObject.SetActive(true);
+
+                float i3 = -1.4f + (2.5f * i);
+
+                GameObject g = Instantiate(new GameObject(), new Vector3(-5, i3), Quaternion.identity);
+                g.AddComponent<SpriteRenderer>();
+                g.GetComponent<SpriteRenderer>().sprite = charSplash[i];
+                g.GetComponent<SpriteRenderer>().sortingOrder = 11;
+
+                charStorage[i] = g;
             }
 
             pin.SetControls(true);
@@ -77,6 +90,11 @@ public class OverworldHandler : MonoBehaviour {
             pauze = null;
 
             pin.SetControls(false);
+
+            foreach (GameObject g in charStorage)
+            {
+                Destroy(g);
+            }
 
             foreach (Text text in pauzeText)
             {
