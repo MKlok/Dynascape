@@ -133,6 +133,7 @@ public class PlayerCharacter : MonoBehaviour {
         {
             isDead = true;
             gameObject.tag = "Untagged";
+            GetComponent<SpriteRenderer>().sprite = animationHandler[4];
 
             uh.UpdateHP(0, maxHP, playerNumber);
         }
