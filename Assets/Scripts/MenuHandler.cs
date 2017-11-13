@@ -15,8 +15,6 @@ public class MenuHandler : MonoBehaviour {
         {
             centerText.text = "Congratulations!";
 
-            centerText.transform.position = new Vector3(Screen.width / 2, Screen.height / 1.4f);
-
             GameObject g = GameObject.FindWithTag("LoseState");
 
             if (g != null)
@@ -30,7 +28,9 @@ public class MenuHandler : MonoBehaviour {
             centerText.text = "Dynascape";
         }
 
-		for(int i = 0; i < uiText.Length; i++)
+        centerText.transform.position = new Vector3(Screen.width / 2, Screen.height / 1.4f);
+
+        for (int i = 0; i < uiText.Length; i++)
         {
             uiText[i].color = Color.white;
 
