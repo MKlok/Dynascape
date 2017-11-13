@@ -74,13 +74,38 @@ public class CombatController : MonoBehaviour {
                             pc.AnimationUpdate(3);
                             uh.MenuPress(topbarRefresh);
                         }
-                        else if (hit.transform.tag == "UniqueAction")
+                        else if (hit.transform.tag == "UniqueAction" && !pc.uniqueUsed)
                         {
                             //Unique action call
 
+                            if (pc.charClass == "Paladin")
+                            {
+                                GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
+
+                                foreach(GameObject g in playerList)
+                                {
+                                    g.GetComponent<PlayerCharacter>().SetStat(1, (pc.GetStat(3) * 2));
+                                }
+                            }
+                            else if (pc.charClass == "Mage")
+                            {
+                                GameObject[] enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+
+                                foreach (GameObject g in enemyList)
+                                {
+                                    g.GetComponent<EnemyController>().TakeDamage(pc.GetStat(3) * 2);
+                                }
+                            }
+                            else if (pc.charClass == "Fighter")
+                            {
+                                target.GetComponent<EnemyController>().TakeDamage(pc.GetStat(2) * 3);
+                            }
+
+                            pc.uniqueUsed = true;
+
                             topbarRefresh = 3;
 
-                            pc.AnimationUpdate(4);
+                            pc.AnimationUpdate(1);
                             uh.MenuPress(topbarRefresh);
                         }
                         RemoveTopFromQueue();

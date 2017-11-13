@@ -14,6 +14,8 @@ public class PlayerCharacter : MonoBehaviour {
     private bool defending;
     private bool isDead;
 
+    public bool uniqueUsed;
+
     private int hp;
     private int attack;
     private int magic;
@@ -51,6 +53,7 @@ public class PlayerCharacter : MonoBehaviour {
         addedtoList = false;
         defending = false;
         isDead = false;
+        uniqueUsed = false;
 
         SetChar(playerNumber);
 
