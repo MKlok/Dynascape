@@ -36,7 +36,7 @@ public class RandomMovementInArea : MonoBehaviour {
     {
         if (curTime < switchDirection)
         {
-            curTime += 1 * Time.deltaTime;
+            curTime += Time.deltaTime;
         }
         else {
             SetVel();
@@ -53,7 +53,6 @@ public class RandomMovementInArea : MonoBehaviour {
             }
             curTime = 0;
         }
-        transform.Translate(vel * 0.25f * Time.deltaTime);
-        //transform.position = vel;
+        transform.Translate(vel * 0.1f * Time.deltaTime);
     }
 }
