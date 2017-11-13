@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7556e6b0a38ea304d97d150e897138bf
-timeCreated: 1505900864
+timeCreated: 1510560824
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: SaraCalSheetTesting_1
     21300004: SaraCalSheetTesting_2
     21300006: SaraCalSheetTesting_3
+    21300008: SaraCalSheetTesting_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -86,9 +87,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 17
         width: 31
-        height: 50
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -98,10 +99,10 @@ TextureImporter:
       name: SaraCalSheetTesting_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 0
+        x: 44
+        y: 17
         width: 31
-        height: 50
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,10 +112,10 @@ TextureImporter:
       name: SaraCalSheetTesting_2
       rect:
         serializedVersion: 2
-        x: 62
-        y: 0
-        width: 31
-        height: 50
+        x: 88
+        y: 17
+        width: 30
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,10 +125,23 @@ TextureImporter:
       name: SaraCalSheetTesting_3
       rect:
         serializedVersion: 2
-        x: 93
-        y: 0
+        x: 132
+        y: 17
         width: 31
-        height: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SaraCalSheetTesting_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 37
+        width: 47
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
