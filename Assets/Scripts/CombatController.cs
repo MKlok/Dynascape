@@ -146,4 +146,9 @@ public class CombatController : MonoBehaviour {
             pc = pcQueue[0];
         } 
     }
+
+    private void InstanceEnemies()
+    {
+
+    }
 }
