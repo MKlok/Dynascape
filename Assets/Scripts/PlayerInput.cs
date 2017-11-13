@@ -104,7 +104,7 @@ public class PlayerInput : MonoBehaviour {
         }
         if (encounterTimer >= 1.0f)
         {
-            RandomEncounter();
+            RandomEncounter(false);
         }
         else if (startEncounter)
         {
@@ -142,7 +142,7 @@ public class PlayerInput : MonoBehaviour {
                 encounterTimer = 0.0f;
                 encounterTracker = 0;
 
-                RandomEncounter();
+                RandomEncounter(false);
             }
         }
 
@@ -178,22 +178,35 @@ public class PlayerInput : MonoBehaviour {
         GetComponent<SpriteRenderer>().sprite = animationHandler[currentFrame];
     }
 
-    private void RandomEncounter ()
+    private void RandomEncounter(bool isBoss)
     {
-        if (encounterTracker <= 4)
+        if (!isBoss)
         {
-            encounterTracker += 1;
+            if (encounterTracker <= 4)
+            {
+                encounterTracker += 1;
+            }
+
+            encounterTimer--;
+
+            if (Random.Range(encounterTracker, 20) <= 6)
+            {
+                //startEncounter = true;
+                GetComponent<AudioSource>().clip = enterBattle;
+                GetComponent<AudioSource>().Play();
+            }
         }
-
-        encounterTimer--;
-
-        if (Random.Range(encounterTracker, 20) <= 6)
+        else
         {
-            Debug.Log("Encounter! RN:" + encounterTracker);
 
-            //startEncounter = true;
-            GetComponent<AudioSource>().clip = enterBattle;
-            GetComponent<AudioSource>().Play();
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "FinalBossInit")
+        {
+            RandomEncounter(true);
         }
     }
 
