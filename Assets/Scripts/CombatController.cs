@@ -12,7 +12,7 @@ public class CombatController : MonoBehaviour {
     private List<PlayerCharacter> pcQueue;
 
     public Transform crosshair;
-    private Transform[] crosshairs;
+    private Transform crosshairs;
 
     private int topbarRefresh;
 
@@ -37,7 +37,16 @@ public class CombatController : MonoBehaviour {
                 if (ec)
                 {
                     target = hit.transform.gameObject;
-                    Instantiate(crosshair, target.transform.position, Quaternion.identity);
+
+                    if (!crosshairs)
+                    {
+                        crosshairs = Instantiate(crosshair, target.transform.position, Quaternion.identity);
+                    }
+                    else
+                    {
+                        crosshairs.transform.position = target.transform.position;
+                    }
+
                 }
                 if (!ec && pc != null && hit.transform.tag != "Player")
                 {
