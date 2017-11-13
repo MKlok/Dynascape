@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerInput : MonoBehaviour {
+    private SceneLoadInfo sli;
+
     public Sprite[] animationHandler;
 
     private static GameObject player;
@@ -24,6 +26,8 @@ public class PlayerInput : MonoBehaviour {
 
     // Use this for initialization
     void Awake() {
+        sli = GameObject.FindWithTag("SceneLoadInfo").GetComponent<SceneLoadInfo>();
+
         if (!player)
         {
             player = gameObject;
@@ -104,7 +108,7 @@ public class PlayerInput : MonoBehaviour {
         }
         if (encounterTimer >= 1.0f)
         {
-            RandomEncounter(false);
+            RandomEncounter();
         }
         else if (startEncounter)
         {
@@ -142,7 +146,7 @@ public class PlayerInput : MonoBehaviour {
                 encounterTimer = 0.0f;
                 encounterTracker = 0;
 
-                RandomEncounter(false);
+                RandomEncounter();
             }
         }
 
@@ -178,27 +182,19 @@ public class PlayerInput : MonoBehaviour {
         GetComponent<SpriteRenderer>().sprite = animationHandler[currentFrame];
     }
 
-    private void RandomEncounter(bool isBoss)
-    {
-        if (!isBoss)
+    private void RandomEncounter()
+    { 
+        if (encounterTracker <= 4)
         {
-            if (encounterTracker <= 4)
-            {
-                encounterTracker += 1;
-            }
-
-            encounterTimer--;
-
-            if (Random.Range(encounterTracker, 20) <= 6)
-            {
-                startEncounter = true;
-                GetComponent<AudioSource>().clip = enterBattle;
-                GetComponent<AudioSource>().Play();
-            }
+            encounterTracker += 1;
         }
-        else
-        {
 
+        encounterTimer--;
+        if (Random.Range(encounterTracker, 20) <= 6)
+        {
+            startEncounter = true;
+            GetComponent<AudioSource>().clip = enterBattle;
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -206,7 +202,8 @@ public class PlayerInput : MonoBehaviour {
     {
         if (collision.gameObject.name == "FinalBossInit")
         {
-            RandomEncounter(true);
+
+            RandomEncounter();
         }
     }
 

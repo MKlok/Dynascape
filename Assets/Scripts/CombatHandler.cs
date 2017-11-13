@@ -5,15 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class CombatHandler : MonoBehaviour
 {
-    public SceneLoadInfo sli;
+    private SceneLoadInfo sli;
 
     private GameObject[] enemyList;
     private GameObject[] playerList;
     private GameObject overWorldController;
 
+    private bool bossInstanced;
+
     // Use this for initialization
     void Start()
     {
+        bossInstanced = false;
+
+        sli = GameObject.FindWithTag("SceneLoadInfo").GetComponent<SceneLoadInfo>();
+
         UpdateList();
 
         overWorldController = GameObject.FindWithTag("OverworldController");
@@ -39,6 +45,14 @@ public class CombatHandler : MonoBehaviour
     {
         enemyList = GameObject.FindGameObjectsWithTag("Enemy");
 
+        if (bossInstanced  && enemyList.Length == 0)
+        {
+            Destroy(sli.gameObject);
+            Destroy(overWorldController);
+
+            LoadEnd();
+        }
+
         if (enemyList.Length == 0)
         {
             overWorldController.GetComponent<PlayerInput>().SetControls(false);
@@ -49,9 +63,20 @@ public class CombatHandler : MonoBehaviour
 
         if (playerList.Length == 0)
         {
-            sli.Lose();
             Destroy(overWorldController);
             LoadEnd();
+        }
+    }
+
+    private void InstanceEnemies(bool boss)
+    {
+        if (boss)
+        {
+            bossInstanced = true;
+        }
+        else
+        {
+
         }
     }
 }

@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SceneLoadInfo : MonoBehaviour {
+    public bool activateBoss;
+
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        activateBoss = false;
+
+        DontDestroyOnLoad(gameObject);
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
-    public void Lose ()
+    public void InitBoss()
     {
-        DontDestroyOnLoad(gameObject);
+        activateBoss = true;
     }
 }
