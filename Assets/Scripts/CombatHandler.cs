@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CombatHandler : MonoBehaviour
 {
+    public SceneLoadInfo sli;
+
     private GameObject[] enemyList;
     private GameObject[] playerList;
     private GameObject overWorldController;
@@ -28,7 +30,7 @@ public class CombatHandler : MonoBehaviour
         SceneManager.LoadScene("OverworldScene");
     }
 
-    private void LoadGameOver()
+    private void LoadEnd()
     {
         SceneManager.LoadScene("EndScene");
     }
@@ -47,8 +49,9 @@ public class CombatHandler : MonoBehaviour
 
         if (playerList.Length == 0)
         {
+            sli.Lose();
             Destroy(overWorldController);
-            LoadGameOver();
+            LoadEnd();
         }
     }
 }
