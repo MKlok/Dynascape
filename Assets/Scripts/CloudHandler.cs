@@ -12,7 +12,7 @@ public class CloudHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         spawnTimer = 0.0f;
-        spawnTime = Random.Range(0.4f, 1.6f);
+        spawnTime = Random.Range(0.4f, 1.2f);
 
         InstanciateOcean(61, 55);
     }
@@ -24,7 +24,7 @@ public class CloudHandler : MonoBehaviour {
         if (spawnTimer >= spawnTime)
         {
             spawnTimer = 0.0f;
-            spawnTime = Random.Range(10f, 18f);
+            spawnTime = Random.Range(5f, 9f);
 
             Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(0, Random.Range(0, Screen.height), Camera.main.farClipPlane / 2));
 
