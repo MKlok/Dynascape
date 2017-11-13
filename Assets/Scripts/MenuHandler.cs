@@ -7,8 +7,29 @@ using UnityEngine.SceneManagement;
 public class MenuHandler : MonoBehaviour {
     public Text[] uiText;
 
+    public Text centerText;
+
 	// Use this for initialization
 	void Start () {
+        if (SceneManager.GetActiveScene().name == "EndScene")
+        {
+            centerText.text = "Congratulations!";
+
+            centerText.transform.position = new Vector3(Screen.width / 2, Screen.height / 1.4f);
+
+            GameObject g = GameObject.FindWithTag("LoseState");
+
+            if (g != null)
+            {
+                centerText.text = "Game Over.";
+                Destroy(g);
+            }
+        }
+        else
+        {
+            centerText.text = "Dynascape";
+        }
+
 		for(int i = 0; i < uiText.Length; i++)
         {
             uiText[i].color = Color.white;
