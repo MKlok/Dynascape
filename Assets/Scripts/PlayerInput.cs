@@ -191,7 +191,7 @@ public class PlayerInput : MonoBehaviour {
 
             if (Random.Range(encounterTracker, 20) <= 6)
             {
-                //startEncounter = true;
+                startEncounter = true;
                 GetComponent<AudioSource>().clip = enterBattle;
                 GetComponent<AudioSource>().Play();
             }
