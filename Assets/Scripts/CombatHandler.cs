@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class CombatHandler : MonoBehaviour
 {
     private GameObject[] enemyList;
+    private GameObject[] playerList;
     private GameObject overWorldController;
 
     // Use this for initialization
@@ -27,6 +28,11 @@ public class CombatHandler : MonoBehaviour
         SceneManager.LoadScene("OverworldScene");
     }
 
+    private void LoadGameOver()
+    {
+        SceneManager.LoadScene("EndScene");
+    }
+
     public void UpdateList()
     {
         enemyList = GameObject.FindGameObjectsWithTag("Enemy");
@@ -35,6 +41,14 @@ public class CombatHandler : MonoBehaviour
         {
             overWorldController.GetComponent<PlayerInput>().SetControls(false);
             LoadOverworld();
+        }
+
+        playerList = GameObject.FindGameObjectsWithTag("Player");
+
+        if (playerList.Length == 0)
+        {
+            Destroy(overWorldController);
+            LoadGameOver();
         }
     }
 }
