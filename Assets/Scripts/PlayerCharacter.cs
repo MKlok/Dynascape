@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerCharacter : MonoBehaviour {
+    public CombatHandler ch;
+
     public Sprite[] animationHandler;
 
     public CombatController cc;
@@ -139,6 +141,8 @@ public class PlayerCharacter : MonoBehaviour {
             GetComponent<SpriteRenderer>().sprite = animationHandler[4];
 
             uh.UpdateHP(0, maxHP, playerNumber);
+
+            ch.UpdateList();
         }
     }
 
