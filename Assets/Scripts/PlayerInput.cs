@@ -110,11 +110,17 @@ public class PlayerInput : MonoBehaviour {
         {
             RandomEncounter();
         }
-        else if (startEncounter)
+        if (startEncounter)
         {
             if (Camera.main.orthographicSize >= 0.5f)
             {
-                Camera.main.orthographicSize -= Time.deltaTime * 2.8f;
+                float orthographicSize = Camera.main.orthographicSize -= Time.deltaTime * 2.8f;
+                float aspect = 1.33333f;
+                //Camera.main.orthographicSize += Time.deltaTime * 2.8f;
+                Camera.main.projectionMatrix = Matrix4x4.Ortho(
+                    -orthographicSize * aspect, orthographicSize * aspect,
+                    -orthographicSize, orthographicSize,
+                    Camera.main.nearClipPlane, Camera.main.farClipPlane);
             }
 
             encounterTimer += Time.deltaTime;
