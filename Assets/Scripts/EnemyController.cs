@@ -88,4 +88,9 @@ public class EnemyController : MonoBehaviour {
 
         targets[rn].GetComponent<PlayerCharacter>().TakeDamage(damage, false);
     }
+
+    public void SetBoss()
+    {
+
+    }
 }

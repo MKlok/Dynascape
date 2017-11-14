@@ -202,7 +202,7 @@ public class PlayerInput : MonoBehaviour {
     {
         if (collision.gameObject.name == "FinalBossInit")
         {
-
+            sli.activateBoss = true;
             RandomEncounter();
         }
     }

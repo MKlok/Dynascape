@@ -11,6 +11,10 @@ public class CombatHandler : MonoBehaviour
     private GameObject[] playerList;
     private GameObject overWorldController;
 
+    public GameObject[] enemyPrefabs;
+
+    public GameObject bossPrefab;
+
     private bool bossInstanced;
 
     // Use this for initialization
@@ -23,6 +27,8 @@ public class CombatHandler : MonoBehaviour
         UpdateList();
 
         overWorldController = GameObject.FindWithTag("OverworldController");
+
+        InstanceEnemies(sli.activateBoss);
     }
 
     // Update is called once per frame
@@ -73,10 +79,16 @@ public class CombatHandler : MonoBehaviour
         if (boss)
         {
             bossInstanced = true;
+            sli.activateBoss = false;
+
+            Instantiate(bossPrefab);
         }
         else
         {
-
+            foreach (GameObject g in enemyPrefabs)
+            {
+                Instantiate(g);
+            }
         }
     }
 }

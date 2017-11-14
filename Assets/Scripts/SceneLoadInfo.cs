@@ -5,7 +5,6 @@ using UnityEngine;
 public class SceneLoadInfo : MonoBehaviour {
     public bool activateBoss;
 
-
 	// Use this for initialization
 	void Start () {
         activateBoss = false;
