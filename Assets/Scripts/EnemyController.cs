@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour {
     private float attackSpeed;
 
     private bool isDead;
+    private bool isBoss;
 
     Renderer _renderer;
 
@@ -32,9 +33,10 @@ public class EnemyController : MonoBehaviour {
 
         t = 0;
         duration = 1.5f;
-        attackSpeed = 1.5f;
+        attackSpeed = 1.75f;
 
         isDead = false;
+        isBoss = false;
 
         _renderer = GetComponent<Renderer>();
     }
@@ -84,13 +86,38 @@ public class EnemyController : MonoBehaviour {
             return;
         }
 
-        int rn = Random.Range(0, targets.Length);
+        if (!isBoss)
+        {
 
-        targets[rn].GetComponent<PlayerCharacter>().TakeDamage(damage, false);
+            int rn = Random.Range(0, targets.Length);
+
+            targets[rn].GetComponent<PlayerCharacter>().TakeDamage(damage, false);
+        }
+        else
+        {
+            if (Random.value < 0.5f)
+            {
+                int rn = Random.Range(0, targets.Length);
+
+                targets[rn].GetComponent<PlayerCharacter>().TakeDamage(damage, false);
+            }
+            else
+            {
+                foreach (GameObject g in targets)
+                {
+                    g.GetComponent<PlayerCharacter>().TakeDamage(damage / 2, false);
+                }
+            }
+        }
     }
 
     public void SetBoss()
     {
+        hp = 500;
+        damage = 45;
 
+        attackSpeed = 1.2f;
+
+        isBoss = true;
     }
 }

@@ -80,7 +80,7 @@ public class CombatHandler : MonoBehaviour
         {
             bossInstanced = true;
             sli.activateBoss = false;
-
+            bossPrefab.GetComponent<EnemyController>().SetBoss();
             Instantiate(bossPrefab);
         }
         else
