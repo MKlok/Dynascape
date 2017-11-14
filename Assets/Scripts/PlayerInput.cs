@@ -200,10 +200,8 @@ public class PlayerInput : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name == "FinalBossInit")
         {
-            Debug.Log(collision.gameObject.name);
             sli.activateBoss = true;
             startEncounter = true;
         }
