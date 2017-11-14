@@ -9,6 +9,8 @@ public class MenuHandler : MonoBehaviour {
 
     public Text centerText;
 
+    public Text credits;
+
 	// Use this for initialization
 	void Start () {
         if (SceneManager.GetActiveScene().name == "EndScene")
@@ -29,6 +31,12 @@ public class MenuHandler : MonoBehaviour {
         }
 
         centerText.transform.position = new Vector3(Screen.width / 2, Screen.height / 1.4f);
+
+        if (credits != null)
+        {
+            credits.color = Color.white;
+            credits.transform.position = new Vector3(0, Screen.height);
+        }
 
         for (int i = 0; i < uiText.Length; i++)
         {
