@@ -16,9 +16,4 @@ public class SceneLoadInfo : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    public void InitBoss()
-    {
-        activateBoss = true;
-    }
 }
