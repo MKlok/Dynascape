@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
-    public CombatHandler ch;
+    private CombatHandler ch;
 
     private int hp;
     private int damage;
@@ -23,6 +23,8 @@ public class EnemyController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        ch = GameObject.FindWithTag("CombatHandler").GetComponent<CombatHandler>();
+
         hp = 100;
 
         damage = 30;

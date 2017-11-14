@@ -18,17 +18,17 @@ public class CombatHandler : MonoBehaviour
     private bool bossInstanced;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         bossInstanced = false;
 
         sli = GameObject.FindWithTag("SceneLoadInfo").GetComponent<SceneLoadInfo>();
 
-        UpdateList();
-
         overWorldController = GameObject.FindWithTag("OverworldController");
 
         InstanceEnemies(sli.activateBoss);
+
+        UpdateList();
     }
 
     // Update is called once per frame
@@ -81,13 +81,15 @@ public class CombatHandler : MonoBehaviour
             bossInstanced = true;
             sli.activateBoss = false;
             bossPrefab.GetComponent<EnemyController>().SetBoss();
-            Instantiate(bossPrefab);
+            GameObject instancedBoss = Instantiate(bossPrefab);
+            instancedBoss.name = bossPrefab.name;
         }
         else
         {
             foreach (GameObject g in enemyPrefabs)
             {
-                Instantiate(g);
+                GameObject instancedEnemy = Instantiate(g);
+                instancedEnemy.name = g.name;
             }
         }
     }
