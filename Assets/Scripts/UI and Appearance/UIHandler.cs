@@ -52,7 +52,6 @@ public class UIHandler : MonoBehaviour {
             enemyTracker[i].transform.position = new Vector3(Screen.width - (Screen.width / 1.15f) , (Screen.height / 20) * (i + 1));
         }
 
-
         Camera.main.projectionMatrix = Matrix4x4.Ortho(
             -orthographicSize * aspect, orthographicSize * aspect,
             -orthographicSize, orthographicSize,

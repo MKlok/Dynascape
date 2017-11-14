@@ -192,16 +192,18 @@ public class PlayerInput : MonoBehaviour {
         encounterTimer--;
         if (Random.Range(encounterTracker, 20) <= 6)
         {
-            startEncounter = true;
+            //startEncounter = true;
             GetComponent<AudioSource>().clip = enterBattle;
             GetComponent<AudioSource>().Play();
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name == "FinalBossInit")
         {
+            Debug.Log(collision.gameObject.name);
             sli.activateBoss = true;
             RandomEncounter();
         }
