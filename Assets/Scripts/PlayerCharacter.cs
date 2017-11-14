@@ -141,7 +141,7 @@ public class PlayerCharacter : MonoBehaviour {
             GetComponent<SpriteRenderer>().sprite = animationHandler[4];
 
             uh.UpdateHP(0, maxHP, playerNumber);
-
+            
             ch.UpdateList();
         }
     }
