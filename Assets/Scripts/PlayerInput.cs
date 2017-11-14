@@ -192,7 +192,7 @@ public class PlayerInput : MonoBehaviour {
         encounterTimer--;
         if (Random.Range(encounterTracker, 20) <= 6)
         {
-            //startEncounter = true;
+            startEncounter = true;
             GetComponent<AudioSource>().clip = enterBattle;
             GetComponent<AudioSource>().Play();
         }
@@ -205,7 +205,7 @@ public class PlayerInput : MonoBehaviour {
         {
             Debug.Log(collision.gameObject.name);
             sli.activateBoss = true;
-            RandomEncounter();
+            startEncounter = true;
         }
     }
 
