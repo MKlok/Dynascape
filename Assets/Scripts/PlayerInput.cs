@@ -1,27 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInput : MonoBehaviour {
+    private SceneLoadInfo sli;
+
     public Sprite[] animationHandler;
-    private bool startAnimation;
+
+    private static GameObject player;
+
+    private bool startEncounter;
+    private bool disableControls;
+
     private int currentFrame;
+    private int encounterTracker;
+
     private float animationTimer;
+    private float encounterTimer;
+
     private string lastKey;
     private string currKey;
 
+    public AudioClip enterBattle;
+
     // Use this for initialization
-    void Start () {
-        startAnimation = false;
+    void Awake() {
+        sli = GameObject.FindWithTag("SceneLoadInfo").GetComponent<SceneLoadInfo>();
+
+        if (!player)
+        {
+            player = gameObject;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+        startEncounter = false;
+        disableControls = false;
+
         currentFrame = 0;
+        encounterTracker = 0;
+
         animationTimer = 0.0f;
+        encounterTimer = 0.0f;
+
         lastKey = null;
         currKey = null;
-	}
+
+        gameObject.AddComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.anyKey)
+        if (Input.anyKey && !startEncounter && !disableControls)
         {
             if (Input.GetKey(KeyCode.W))
             {
@@ -46,9 +81,13 @@ public class PlayerInput : MonoBehaviour {
                 gameObject.transform.Translate(Vector3.down * Time.deltaTime);
                 PlayAnimation(0);
                 currKey = "S";
-            }            
+            }
+            if (!Input.GetKey(KeyCode.Escape))
+            {
+                encounterTimer += Time.deltaTime;
+            }
         }
-        else
+        else if (!disableControls)
         {
             if (Input.GetKeyUp(KeyCode.W))
             {
@@ -67,6 +106,32 @@ public class PlayerInput : MonoBehaviour {
                 StopAnimation(2);
             }
         }
+        if (encounterTimer >= 1.0f)
+        {
+            RandomEncounter();
+        }
+        if (startEncounter)
+        {
+            if (Camera.main.orthographicSize >= 0.5f)
+            {
+                float orthographicSize = Camera.main.orthographicSize -= Time.deltaTime * 2.8f;
+                float aspect = 1.33333f;
+                //Camera.main.orthographicSize += Time.deltaTime * 2.8f;
+                Camera.main.projectionMatrix = Matrix4x4.Ortho(
+                    -orthographicSize * aspect, orthographicSize * aspect,
+                    -orthographicSize, orthographicSize,
+                    Camera.main.nearClipPlane, Camera.main.farClipPlane);
+            }
+
+            encounterTimer += Time.deltaTime;
+            if (encounterTimer >= 1f)
+            {
+                SceneManager.LoadScene("Combatscene");
+                encounterTimer = 0.0f;
+                startEncounter = false;
+                disableControls = true;
+            }
+        }
     }
 
     private void PlayAnimation(int side)
@@ -83,8 +148,11 @@ public class PlayerInput : MonoBehaviour {
             {
                 StopAnimation(side);
                 lastKey = currKey;
-                startAnimation = true;
                 animationTimer = 1f;
+                encounterTimer = 0.0f;
+                encounterTracker = 0;
+
+                RandomEncounter();
             }
         }
 
@@ -118,6 +186,45 @@ public class PlayerInput : MonoBehaviour {
         }
         currentFrame = side * 3;
         GetComponent<SpriteRenderer>().sprite = animationHandler[currentFrame];
-        startAnimation = false;
+    }
+
+    private void RandomEncounter()
+    { 
+        if (encounterTracker < 3)
+        {
+            encounterTracker += 1;
+        }
+
+        encounterTimer--;
+        if (Random.Range(encounterTracker, 20) <= 4)
+        {
+            startEncounter = true;
+            GetComponent<AudioSource>().clip = enterBattle;
+            GetComponent<AudioSource>().Play();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "FinalBossInit")
+        {
+            sli.activateBoss = true;
+            startEncounter = true;
+        }
+    }
+
+    public bool GetControls()
+    {
+        return disableControls;
+    }
+
+    public void SetControls(bool b)
+    {
+        disableControls = b;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 }

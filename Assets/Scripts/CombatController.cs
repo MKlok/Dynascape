@@ -4,23 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CombatController : MonoBehaviour {
+    public UIHandler uh;
+
     private GameObject target;
-    public Sprite[] animationHandler;
-    public Slider ccCooldown;
-    public Image sliderFill;
+    private PlayerCharacter pc;
 
-    private float resetTimer;
-    private float turnCooldown;
+    private List<PlayerCharacter> pcQueue;
 
-	// Use this for initialization
-	void Start () {
+    public Transform crosshair;
+    private Transform crosshairs;
+
+    private int topbarRefresh;
+
+    // Use this for initialization
+    void Start () {
+        pcQueue = new List<PlayerCharacter>();
+
         target = null;
 
-        resetTimer = 0.0f;
-        turnCooldown = 2.5f;
-
-        ccCooldown.maxValue = turnCooldown;
-        sliderFill.color = Color.green;
+        pc = null;
 	}
 	
 	// Update is called once per frame
@@ -35,72 +37,113 @@ public class CombatController : MonoBehaviour {
                 if (ec)
                 {
                     target = hit.transform.gameObject;
-                }
-                if (!ec)
-                {
-                    if (ccCooldown.value >= turnCooldown)
+
+                    if (!crosshairs)
                     {
-                        ccCooldown.value = 0;
+                        crosshairs = Instantiate(crosshair, target.transform.position, Quaternion.identity);
+                    }
+                    else
+                    {
+                        crosshairs.transform.position = target.transform.position;
+                    }
+
+                }
+                if (!ec && pc != null && hit.transform.tag != "Player")
+                {
+                    if (uh.playerCooldown[pc.playerNumber].value >= pc.speed)
+                    {
+                        uh.UpdateSlider(true, pc.playerNumber);
                         if (hit.transform.tag == "Attack")
                         {
-                            if (target != null && target.GetComponent<EnemyController>().HP > 0)
+                            if (target != null)
                             {
-                                target.GetComponent<EnemyController>().HP -= 20;
+                                target.GetComponent<EnemyController>().TakeDamage(pc.GetStat(2));
 
-                                Debug.Log(target.GetComponent<EnemyController>().HP);
+                                topbarRefresh = 0;
 
-                                animationUpdate(1);
+                                pc.AnimationUpdate(1);
+                                uh.MenuPress(topbarRefresh);
                             }
                         }
                         else if (hit.transform.tag == "Defend")
                         {
-                            animationUpdate(2);
+                            pc.Defend();
+
+                            topbarRefresh = 1;
+
+                            pc.AnimationUpdate(2);                          
+                            uh.MenuPress(topbarRefresh);
                         }
                         else if (hit.transform.tag == "Heal")
                         {
-                            animationUpdate(3);
+                            pc.SetStat(1, pc.GetStat(3));
+
+                            topbarRefresh = 2;
+
+                            pc.AnimationUpdate(3);
+                            uh.MenuPress(topbarRefresh);
                         }
-                        else if (hit.transform.tag == "Player")
+                        else if (hit.transform.tag == "UniqueAction" && !pc.uniqueUsed)
                         {
-                            ccCooldown.value = turnCooldown;
-                        } 
+                            //Unique action call
+
+                            if (pc.charClass == "Paladin")
+                            {
+                                GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
+
+                                foreach(GameObject g in playerList)
+                                {
+                                    g.GetComponent<PlayerCharacter>().SetStat(1, (pc.GetStat(3) * 2));
+                                }
+                            }
+                            else if (pc.charClass == "Mage")
+                            {
+                                GameObject[] enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+
+                                foreach (GameObject g in enemyList)
+                                {
+                                    g.GetComponent<EnemyController>().TakeDamage(pc.GetStat(3) * 2);
+                                }
+                            }
+                            else if (pc.charClass == "Fighter")
+                            {
+                                target.GetComponent<EnemyController>().TakeDamage(pc.GetStat(2) * 3);
+                            }
+
+                            pc.uniqueUsed = true;
+
+                            topbarRefresh = 3;
+
+                            pc.AnimationUpdate(1);
+                            uh.MenuPress(topbarRefresh);
+                        }
+                        RemoveTopFromQueue();
                     }
                 }
             }
         }
-        if (resetTimer < 2f)
-        {
-            resetTimer += Time.deltaTime;
-            if (resetTimer >= 2f)
-            {
-                animationUpdate(0);
-            }
-        }
-        if (ccCooldown.value < turnCooldown)
-        {
-            ccCooldown.value += Time.deltaTime;
-            if (sliderFill.color == Color.yellow)
-            {
-                sliderFill.color = Color.green;
-            }
-        }
-        else
-        {
-            sliderFill.color = Color.yellow;
-        }
-
     }
 
-    void animationUpdate(int frame)
+    public void AddToQueue(PlayerCharacter addition)
     {
-        if (frame >= animationHandler.Length)
+        pcQueue.Add(addition);
+
+        if (pc == null)
         {
-            frame = 0;
+            pc = pcQueue[0];
         }
-        if (frame != 0)
+    }
+
+    private void RemoveTopFromQueue()
+    {
+        if (pcQueue.Count > 0) {
+            pcQueue[0].ClearedFromQueue();
+           pcQueue.RemoveAt(0);
+        }
+
+        if (pcQueue.Count > 0)
         {
-            resetTimer = 0.0f;
-        }
-        GetComponent<SpriteRenderer>().sprite = animationHandler[frame];
+            pc = pcQueue[0];
+        } 
     }
 }
