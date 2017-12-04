@@ -90,7 +90,6 @@ public class EnemyController : MonoBehaviour {
 
         if (!isBoss)
         {
-
             int rn = Random.Range(0, targets.Length);
 
             targets[rn].GetComponent<PlayerCharacter>().TakeDamage(damage, false);
