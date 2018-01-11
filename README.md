@@ -9,3 +9,13 @@ In here the following functionalities can be found:
  - Random encounters
  - Basic Enemy AI
  - Different player actions
+
+A zip with the final build is included in the repository.
+The controls for the game are as follows:
+
+**Overworld:**
+ - Movement: W A S D
+ - Pause: Escape
+ 
+**Combat**
+ - Target / action selection: Mouse click
